@@ -10,10 +10,10 @@ use vb_proyect_joyfe;
 -- *************************************************************************
 
 -- Drop tables if they exist
+DROP TABLE IF EXISTS `vb_proyect_joyfe`.`users`;
+DROP TABLE IF EXISTS `vb_proyect_joyfe`.`role_permissions`;
 DROP TABLE IF EXISTS `vb_proyect_joyfe`.`roles`;
 DROP TABLE IF EXISTS `vb_proyect_joyfe`.`permissions`;
-DROP TABLE IF EXISTS `vb_proyect_joyfe`.`role_permissions`;
-DROP TABLE IF EXISTS `vb_proyect_joyfe`.`users`;
 
 
 -- creates tables
@@ -84,8 +84,14 @@ CREATE TABLE `vb_proyect_joyfe`.`users` (
 -- *                             INSERTS FOR ROLES AND PERMINSIONS       *
 -- *                                                                       *
 -- *************************************************************************
-    
-    
+
+-- Inserts para crear los roles
+INSERT INTO roles (name, description) VALUES
+('admin', 'Administrador del sistema'),
+('moderator', 'Moderador del sistema'),
+('user', 'Usuario del sistema');
+
+
 -- Inserts para crear los permisos para cada acción en cada recurso
 INSERT INTO permissions (action, resource) VALUES
 ('CREATE', 'USERS'), ('UPDATE', 'USERS'), ('READ', 'USERS'), ('DELETE', 'USERS'),
@@ -93,35 +99,45 @@ INSERT INTO permissions (action, resource) VALUES
 ('CREATE', 'PERMISSIONS'), ('UPDATE', 'PERMISSIONS'), ('READ', 'PERMISSIONS'), ('DELETE', 'PERMISSIONS'),
 ('CREATE', 'DELETED_USERS'), ('UPDATE', 'DELETED_USERS'), ('READ', 'DELETED_USERS'), ('DELETE', 'DELETED_USERS');
 
--- Obtener los IDs de los roles
-SET @adminRoleId = (SELECT id FROM roles WHERE name = 'admin');
-SET @moderatorRoleId = (SELECT id FROM roles WHERE name = 'moderator');
-SET @userRoleId = (SELECT id FROM roles WHERE name = 'user');
 
--- Obtener los IDs de los permisos
-SET @createPermissionId = (SELECT id FROM permissions WHERE action = 'CREATE');
-SET @updatePermissionId = (SELECT id FROM permissions WHERE action = 'UPDATE');
-SET @readPermissionId = (SELECT id FROM permissions WHERE action = 'READ');
-SET @deletePermissionId = (SELECT id FROM permissions WHERE action = 'DELETE');
-
--- Establecer las relaciones entre los roles y los permisos en la tabla intermedia
--- Para el admin: todos los permisos para todos los recursos, incluido DELETE
+-- Inserts para asignar permisos a los roles
+-- El rol admin tiene todos los permisos
 INSERT INTO role_permissions (role_id, permission_id) VALUES
-(@adminRoleId, @createPermissionId), (@adminRoleId, @updatePermissionId), (@adminRoleId, @readPermissionId), (@adminRoleId, @deletePermissionId);
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11), (1, 12), (1, 13), (1, 14), (1, 15), (1, 16),
 
--- Para el moderador: permisos de lectura y actualización de todos los recursos
-INSERT INTO role_permissions (role_id, permission_id) VALUES
-(@moderatorRoleId, @readPermissionId), (@moderatorRoleId, @updatePermissionId);
+-- El rol moderator tiene permisos para crear, leer y actualizar usuarios
+(2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (2, 7), (2, 9), (2, 10), (2, 11), (2, 13), (2, 14), (2, 15),
 
--- Para el usuario: permiso de lectura de todos los recursos
-INSERT INTO role_permissions (role_id, permission_id) VALUES
-(@userRoleId, @readPermissionId);
+-- El rol user tiene permisos para leer usuarios
+(3, 3), (3, 7), (3, 11), (3, 15);
 
 
+-- Usuario administrador
 INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
 VALUES ('admin', 'admin@example.com', 'password123', 
         (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'admin'), 
         CURRENT_TIMESTAMP);
+
+-- Usuario moderador
+INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
+VALUES ('moderator', 'moderator@example.com', 'password123', 
+        (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'moderator'), 
+        CURRENT_TIMESTAMP);
+
+
+-- Usuario usuario
+INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
+VALUES ('user', 'user@example.com', 'password123', 
+        (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'user'), 
+        CURRENT_TIMESTAMP);
+
+
+-- Query to join the tables and verify the assignments
+SELECT u.name, r.name, p.action, p.resource
+FROM users u
+JOIN roles r ON u.role_id = r.id
+JOIN role_permissions rp ON r.id = rp.role_id
+JOIN permissions p ON rp.permission_id = p.id;
 
 
 
