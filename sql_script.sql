@@ -29,6 +29,7 @@ CREATE TABLE `vb_proyect_joyfe`.`permissions` (
 CREATE TABLE `vb_proyect_joyfe`.`roles` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE);
