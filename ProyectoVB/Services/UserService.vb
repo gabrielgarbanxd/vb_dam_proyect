@@ -19,9 +19,9 @@ Namespace Services
 
                 Dim user = Await _userRepository.SearchByNameAsync(name)
 
-                If user Is Nothing Or user.VerifyPassword(password) = False Then
-                    Throw New ServiceException("Usuario o contraseña incorrectos")
-                End If
+                'If user Is Nothing Or user.VerifyPassword(password) = False Then
+                '    Throw New ServiceException("Usuario o contraseña incorrectos")
+                'End If
 
                 user.Role = Await _roleRepository.FindByIdAsync(user.RoleId)
                 user.Role.Permissions = Await _permissionRepository.SearchByRoleAsync(user.RoleId)

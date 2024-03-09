@@ -141,3 +141,120 @@ JOIN permissions p ON rp.permission_id = p.id;
 
 
 
+-- *************************************************************************
+-- *                                                                       *
+-- *                           STORED PROCEDURES                          *
+-- *                                                                       *
+-- *************************************************************************
+
+-- ==================================
+-- ========>>    USERS    <<=========
+-- ==================================
+
+-- //===>> GetAllUsersProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `GetAllUsersProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `GetAllUsersProcedure`()
+BEGIN
+    SELECT * FROM users;
+END$$
+
+DELIMITER ;
+
+-- //===>> GetUserByIdProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `GetUserByIdProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `GetUserByIdProcedure`(IN id INT)
+BEGIN
+    SELECT * FROM users WHERE id = id;
+END$$
+
+DELIMITER ;
+
+-- //===>> SearchUsersByNameProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `SearchUsersByNameProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchUsersByNameProcedure`(IN name VARCHAR(255))
+BEGIN
+    SELECT * FROM users WHERE name LIKE CONCAT('%', name, '%');
+END$$
+
+DELIMITER ;
+
+-- //===>> SearchUsersByEmailProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `SearchUsersByEmailProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchUsersByEmailProcedure`(IN email VARCHAR(255))
+BEGIN
+    SELECT * FROM users WHERE email LIKE CONCAT('%', email, '%');
+END$$
+
+DELIMITER ;
+
+-- //===>> CreateUserProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `CreateUserProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `CreateUserProcedure`(
+  IN p_name VARCHAR(255),
+  IN p_email VARCHAR(255),
+  IN p_password VARCHAR(255),
+  IN p_payment VARCHAR(255),
+  IN p_lastConnection DATETIME,
+  IN p_firstLogin DATETIME,
+  IN p_roleId INT,
+  IN p_createdAt DATETIME
+)
+BEGIN
+  INSERT INTO users (name, email, password, payment, lastConnection, firstLogin, role_id, created_at)
+  VALUES (p_name, p_email, p_password, p_payment, p_lastConnection, p_firstLogin, p_roleId, p_createdAt);
+END$$
+
+DELIMITER ;
+
+-- //===>> UpdateUserProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `UpdateUserProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `UpdateUserProcedure`(
+  IN p_id INT,
+  IN p_name VARCHAR(255),
+  IN p_email VARCHAR(255),
+  IN p_password VARCHAR(255),
+  IN p_payment VARCHAR(255),
+  IN p_lastConnection DATETIME,
+  IN p_firstLogin DATETIME,
+  IN p_roleId INT,
+  IN p_createdAt DATETIME
+)
+BEGIN
+  UPDATE users
+  SET name = p_name, email = p_email, password = p_password, payment = p_payment, lastConnection = p_lastConnection, firstLogin = p_firstLogin, role_id = p_roleId, created_at = p_createdAt
+  WHERE id = p_id;
+END$$
+
+DELIMITER ;
+
+-- //===>> DeleteUserProcedure users procedure <<===//
+DROP PROCEDURE IF EXISTS `DeleteUserProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `DeleteUserProcedure`(IN id INT)
+BEGIN
+  DELETE FROM users WHERE id = id;
+END$$
+
+DELIMITER ;
+
+-- ==================================
+-- ========>>    ROLES    <<=========
+-- ==================================
+
+
+
+
+
