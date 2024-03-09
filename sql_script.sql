@@ -166,7 +166,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `GetUserByIdProcedure`;
 
 DELIMITER $$
-CREATE PROCEDURE `GetUserByIdProcedure`(IN id INT)
+CREATE PROCEDURE `GetUserByIdProcedure`(IN p_id INT)
 BEGIN
     SELECT * FROM users WHERE id = id;
 END$$
@@ -177,7 +177,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `SearchUsersByNameProcedure`;
 
 DELIMITER $$
-CREATE PROCEDURE `SearchUsersByNameProcedure`(IN name VARCHAR(255))
+CREATE PROCEDURE `SearchUsersByNameProcedure`(IN p_name VARCHAR(255))
 BEGIN
     SELECT * FROM users WHERE name LIKE CONCAT('%', name, '%');
 END$$
@@ -188,7 +188,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `SearchUsersByEmailProcedure`;
 
 DELIMITER $$
-CREATE PROCEDURE `SearchUsersByEmailProcedure`(IN email VARCHAR(255))
+CREATE PROCEDURE `SearchUsersByEmailProcedure`(IN p_email VARCHAR(255))
 BEGIN
     SELECT * FROM users WHERE email LIKE CONCAT('%', email, '%');
 END$$
