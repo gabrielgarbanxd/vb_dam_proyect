@@ -10,13 +10,8 @@ Namespace Repositories.Mappers
             Dim password As String = reader.GetString(reader.GetOrdinal("password"))
             Dim email As String = reader.GetString(reader.GetOrdinal("email"))
             Dim payment As DateTime? = If(reader.IsDBNull(reader.GetOrdinal("payment")), Nothing, reader.GetDateTime(reader.GetOrdinal("payment")))
-<<<<<<< HEAD
             Dim lastConnection As DateTime? = If(reader.IsDBNull(reader.GetOrdinal("last_connection")), Nothing, reader.GetDateTime(reader.GetOrdinal("last_connection")))
             Dim firstLogin As Boolean = reader.GetBoolean(reader.GetOrdinal("first_login"))
-=======
-            Dim lastConnection As DateTime? = If(reader.IsDBNull(reader.GetOrdinal("last_Connection")), Nothing, reader.GetDateTime(reader.GetOrdinal("lastConnection")))
-            Dim firstLogin As Boolean = reader.GetBoolean(reader.GetOrdinal("first_Login"))
->>>>>>> f07643dd49a849fb77cba8670496832d83b5d5e9
             Dim roleId As Integer = reader.GetInt32(reader.GetOrdinal("role_id"))
             Dim createdAt As DateTime = reader.GetDateTime(reader.GetOrdinal("created_at"))
 

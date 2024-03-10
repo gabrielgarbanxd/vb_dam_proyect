@@ -27,8 +27,10 @@ Public Class FrmLogin
                 'End If
 
 
-                My.Application.ShowMainForm()
-                Close()
+
+                Me.Hide()
+                Dim mainForm = New FrmPrincipal()
+                mainForm.Show()
 
 
             End If
