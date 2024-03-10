@@ -4,19 +4,19 @@ Namespace Services
 
     Public Class MailService
 
-        Private ReadOnly _gmailAccount As String = "gabriel@gmail.com"
-        Private ReadOnly _gmailPassword As String = "password"
+        Private ReadOnly _outlookAccount As String = "G.A.VB@outlook.es"
+        Private ReadOnly _outlookPassword As String = "password123**"
 
         Private ReadOnly _smtpClient As SmtpClient
         Private ReadOnly _mailAddress As MailAddress
 
         Public Sub New()
-            _smtpClient = New SmtpClient("smtp.gmail.com") With {
+            _smtpClient = New SmtpClient("smtp.outlook.com") With {
             .Port = 587,
-            .Credentials = New Net.NetworkCredential(_gmailAccount, _gmailPassword),
+            .Credentials = New Net.NetworkCredential(_outlookAccount, _outlookPassword),
             .EnableSsl = True
         }
-            _mailAddress = New MailAddress(_gmailAccount)
+            _mailAddress = New MailAddress(_outlookAccount)
         End Sub
 
         Public Async Function SendRecoverPasswordEmailAsync(email As String, password As String) As Task
