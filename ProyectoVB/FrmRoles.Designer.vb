@@ -22,26 +22,16 @@ Partial Class FrmRoles
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        lblIdFrmRoles = New MaterialSkin.Controls.MaterialLabel()
         btnAceptarFrmRoles = New MaterialSkin.Controls.MaterialButton()
-        txtIdFrmRoles = New MaterialSkin.Controls.MaterialMaskedTextBox()
         lblNameFrmRole = New MaterialSkin.Controls.MaterialLabel()
         txtNameFrmRoles = New MaterialSkin.Controls.MaterialMaskedTextBox()
         lblDescriptionFrmRole = New MaterialSkin.Controls.MaterialLabel()
         txtDescriptionFrmRoles = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
+        lblSelect = New MaterialSkin.Controls.MaterialLabel()
+        chkPermisos = New CheckedListBox()
+        lblRolFrmRoles = New MaterialSkin.Controls.MaterialLabel()
+        chkRol = New CheckedListBox()
         SuspendLayout()
-        ' 
-        ' lblIdFrmRoles
-        ' 
-        lblIdFrmRoles.AutoSize = True
-        lblIdFrmRoles.Depth = 0
-        lblIdFrmRoles.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblIdFrmRoles.Location = New Point(40, 96)
-        lblIdFrmRoles.MouseState = MaterialSkin.MouseState.HOVER
-        lblIdFrmRoles.Name = "lblIdFrmRoles"
-        lblIdFrmRoles.Size = New Size(22, 19)
-        lblIdFrmRoles.TabIndex = 0
-        lblIdFrmRoles.Text = "Id: "
         ' 
         ' btnAceptarFrmRoles
         ' 
@@ -50,7 +40,7 @@ Partial Class FrmRoles
         btnAceptarFrmRoles.Depth = 0
         btnAceptarFrmRoles.HighEmphasis = True
         btnAceptarFrmRoles.Icon = Nothing
-        btnAceptarFrmRoles.Location = New Point(447, 359)
+        btnAceptarFrmRoles.Location = New Point(442, 359)
         btnAceptarFrmRoles.Margin = New Padding(4, 6, 4, 6)
         btnAceptarFrmRoles.MouseState = MaterialSkin.MouseState.HOVER
         btnAceptarFrmRoles.Name = "btnAceptarFrmRoles"
@@ -62,53 +52,12 @@ Partial Class FrmRoles
         btnAceptarFrmRoles.UseAccentColor = False
         btnAceptarFrmRoles.UseVisualStyleBackColor = True
         ' 
-        ' txtIdFrmRoles
-        ' 
-        txtIdFrmRoles.AllowPromptAsInput = True
-        txtIdFrmRoles.AnimateReadOnly = False
-        txtIdFrmRoles.AsciiOnly = False
-        txtIdFrmRoles.BackgroundImageLayout = ImageLayout.None
-        txtIdFrmRoles.BeepOnError = False
-        txtIdFrmRoles.CutCopyMaskFormat = MaskFormat.IncludeLiterals
-        txtIdFrmRoles.Depth = 0
-        txtIdFrmRoles.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        txtIdFrmRoles.HidePromptOnLeave = False
-        txtIdFrmRoles.HideSelection = True
-        txtIdFrmRoles.InsertKeyMode = InsertKeyMode.Default
-        txtIdFrmRoles.LeadingIcon = Nothing
-        txtIdFrmRoles.Location = New Point(40, 118)
-        txtIdFrmRoles.Mask = ""
-        txtIdFrmRoles.MaxLength = 32767
-        txtIdFrmRoles.MouseState = MaterialSkin.MouseState.OUT
-        txtIdFrmRoles.Name = "txtIdFrmRoles"
-        txtIdFrmRoles.PasswordChar = ChrW(0)
-        txtIdFrmRoles.PrefixSuffixText = Nothing
-        txtIdFrmRoles.PromptChar = "_"c
-        txtIdFrmRoles.ReadOnly = False
-        txtIdFrmRoles.RejectInputOnFirstFailure = False
-        txtIdFrmRoles.ResetOnPrompt = True
-        txtIdFrmRoles.ResetOnSpace = True
-        txtIdFrmRoles.RightToLeft = RightToLeft.No
-        txtIdFrmRoles.SelectedText = ""
-        txtIdFrmRoles.SelectionLength = 0
-        txtIdFrmRoles.SelectionStart = 0
-        txtIdFrmRoles.ShortcutsEnabled = True
-        txtIdFrmRoles.Size = New Size(250, 48)
-        txtIdFrmRoles.SkipLiterals = True
-        txtIdFrmRoles.TabIndex = 2
-        txtIdFrmRoles.TabStop = False
-        txtIdFrmRoles.TextAlign = HorizontalAlignment.Left
-        txtIdFrmRoles.TextMaskFormat = MaskFormat.IncludeLiterals
-        txtIdFrmRoles.TrailingIcon = Nothing
-        txtIdFrmRoles.UseSystemPasswordChar = False
-        txtIdFrmRoles.ValidatingType = Nothing
-        ' 
         ' lblNameFrmRole
         ' 
         lblNameFrmRole.AutoSize = True
         lblNameFrmRole.Depth = 0
-        lblNameFrmRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblNameFrmRole.Location = New Point(40, 188)
+        lblNameFrmRole.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblNameFrmRole.Location = New Point(40, 109)
         lblNameFrmRole.MouseState = MaterialSkin.MouseState.HOVER
         lblNameFrmRole.Name = "lblNameFrmRole"
         lblNameFrmRole.Size = New Size(65, 19)
@@ -124,12 +73,12 @@ Partial Class FrmRoles
         txtNameFrmRoles.BeepOnError = False
         txtNameFrmRoles.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         txtNameFrmRoles.Depth = 0
-        txtNameFrmRoles.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        txtNameFrmRoles.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
         txtNameFrmRoles.HidePromptOnLeave = False
         txtNameFrmRoles.HideSelection = True
         txtNameFrmRoles.InsertKeyMode = InsertKeyMode.Default
         txtNameFrmRoles.LeadingIcon = Nothing
-        txtNameFrmRoles.Location = New Point(40, 210)
+        txtNameFrmRoles.Location = New Point(40, 132)
         txtNameFrmRoles.Mask = ""
         txtNameFrmRoles.MaxLength = 32767
         txtNameFrmRoles.MouseState = MaterialSkin.MouseState.OUT
@@ -161,7 +110,7 @@ Partial Class FrmRoles
         lblDescriptionFrmRole.AutoSize = True
         lblDescriptionFrmRole.Depth = 0
         lblDescriptionFrmRole.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblDescriptionFrmRole.Location = New Point(40, 273)
+        lblDescriptionFrmRole.Location = New Point(40, 207)
         lblDescriptionFrmRole.MouseState = MaterialSkin.MouseState.HOVER
         lblDescriptionFrmRole.Name = "lblDescriptionFrmRole"
         lblDescriptionFrmRole.Size = New Size(80, 19)
@@ -175,7 +124,7 @@ Partial Class FrmRoles
         txtDescriptionFrmRoles.CharacterCasing = CharacterCasing.Normal
         txtDescriptionFrmRoles.Depth = 0
         txtDescriptionFrmRoles.HideSelection = True
-        txtDescriptionFrmRoles.Location = New Point(40, 295)
+        txtDescriptionFrmRoles.Location = New Point(40, 229)
         txtDescriptionFrmRoles.MaxLength = 32767
         txtDescriptionFrmRoles.MouseState = MaterialSkin.MouseState.OUT
         txtDescriptionFrmRoles.Name = "txtDescriptionFrmRoles"
@@ -192,29 +141,74 @@ Partial Class FrmRoles
         txtDescriptionFrmRoles.TextAlign = HorizontalAlignment.Left
         txtDescriptionFrmRoles.UseSystemPasswordChar = False
         ' 
+        ' lblSelect
+        ' 
+        lblSelect.AutoSize = True
+        lblSelect.Depth = 0
+        lblSelect.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblSelect.Location = New Point(524, 121)
+        lblSelect.MouseState = MaterialSkin.MouseState.HOVER
+        lblSelect.Name = "lblSelect"
+        lblSelect.Size = New Size(155, 19)
+        lblSelect.TabIndex = 11
+        lblSelect.Text = "Selecciona permisos: "
+        ' 
+        ' chkPermisos
+        ' 
+        chkPermisos.FormattingEnabled = True
+        chkPermisos.Items.AddRange(New Object() {"CREAR USUARIOS", "LEER USUARIOS", "ACTUALIZAR USUARIOS", "ELIMINAR USUARIOS"})
+        chkPermisos.Location = New Point(524, 152)
+        chkPermisos.Name = "chkPermisos"
+        chkPermisos.Size = New Size(180, 166)
+        chkPermisos.TabIndex = 12
+        ' 
+        ' lblRolFrmRoles
+        ' 
+        lblRolFrmRoles.AutoSize = True
+        lblRolFrmRoles.Depth = 0
+        lblRolFrmRoles.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblRolFrmRoles.Location = New Point(312, 121)
+        lblRolFrmRoles.MouseState = MaterialSkin.MouseState.HOVER
+        lblRolFrmRoles.Name = "lblRolFrmRoles"
+        lblRolFrmRoles.Size = New Size(120, 19)
+        lblRolFrmRoles.TabIndex = 13
+        lblRolFrmRoles.Text = "Selecciona el rol:"
+        ' 
+        ' chkRol
+        ' 
+        chkRol.FormattingEnabled = True
+        chkRol.Items.AddRange(New Object() {"USER", "ADMIN", "MODERADOR"})
+        chkRol.Location = New Point(312, 152)
+        chkRol.Name = "chkRol"
+        chkRol.Size = New Size(180, 166)
+        chkRol.TabIndex = 14
+        ' 
         ' FrmRoles
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(chkRol)
+        Controls.Add(lblRolFrmRoles)
+        Controls.Add(chkPermisos)
+        Controls.Add(lblSelect)
         Controls.Add(txtDescriptionFrmRoles)
         Controls.Add(lblDescriptionFrmRole)
         Controls.Add(txtNameFrmRoles)
         Controls.Add(lblNameFrmRole)
-        Controls.Add(txtIdFrmRoles)
         Controls.Add(btnAceptarFrmRoles)
-        Controls.Add(lblIdFrmRoles)
         Name = "FrmRoles"
         Text = "FrmRoles"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents lblIdFrmRoles As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnAceptarFrmRoles As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents txtIdFrmRoles As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents lblNameFrmRole As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txtNameFrmRoles As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents lblDescriptionFrmRole As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txtDescriptionFrmRoles As MaterialSkin.Controls.MaterialMultiLineTextBox2
+    Friend WithEvents lblSelect As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents chkPermisos As CheckedListBox
+    Friend WithEvents lblRolFrmRoles As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents chkRol As CheckedListBox
 End Class
