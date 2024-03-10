@@ -37,11 +37,14 @@ Namespace Repositories
 
             Dim users = Await ExecuteQueryAsync("SearchUsersByNameProcedure", parameters)
 
-            If users.Any() Then
-                Throw New Exception("Error al buscar el usuario")
+
+            If users.Any Then
+
+                Return users.First()
+
             End If
 
-            Return users.First()
+            Throw New Exception("Error al buscar el usuario")
 
         End Function
 

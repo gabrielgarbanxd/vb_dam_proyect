@@ -55,11 +55,16 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = FrmLogin
+            Me.MainForm = FrmPrincipal
+            Me.MainForm.Hide()
+
+            Dim login = New FrmLogin
+            login.ShowDialog()
         End Sub
 
-        Public Sub CambiarForm()
-            Me.MainForm = FrmPrincipal
+
+        Public Sub ShowMainForm()
+            Me.MainForm.Show()
         End Sub
 
     End Class

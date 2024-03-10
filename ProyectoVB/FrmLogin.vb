@@ -1,6 +1,4 @@
 ﻿Imports ProyectoVB.Services
-Imports ProyectoVB.Repositories
-Imports ProyectoVB.Entities
 
 Public Class FrmLogin
 
@@ -13,17 +11,31 @@ Public Class FrmLogin
 
     Private Async Sub BtnSubmit_Click(sender As Object, e As EventArgs) Handles BtnSubmit.Click
 
-        'Try
-        Dim user = Await UserService.Authenticate(TxtName.Text, TxtPassword.Text)
+        Try
+            Dim user = Await UserService.Authenticate(TxtName.Text, TxtPassword.Text)
 
             If user IsNot Nothing Then
-                My.Application.CambiarForm()
-                Me.Close()
+
+                'If user.FirstLogin Then
+
+                '    Dim changePassword = New FrmChangePassword(user, UserService)
+                '    changePassword.ShowDialog()
+
+                'Else
+                '    My.Application.ShowMainForm()
+                '    Close()
+                'End If
+
+
+                My.Application.ShowMainForm()
+                Close()
+
+
             End If
 
-        'Catch ex As ServiceException
-        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'End Try
+        Catch ex As ServiceException
+            MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
     End Sub
 

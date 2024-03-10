@@ -114,7 +114,7 @@ INSERT INTO role_permissions (role_id, permission_id) VALUES
 
 -- Usuario administrador
 INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
-VALUES ('admin', 'admin@example.com', 'password123', 
+VALUES ('admin', 'admin@example.com', '1234', 
         (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'admin'), 
         CURRENT_TIMESTAMP);
 
@@ -168,7 +168,7 @@ DROP PROCEDURE IF EXISTS `GetUserByIdProcedure`;
 DELIMITER $$
 CREATE PROCEDURE `GetUserByIdProcedure`(IN p_id INT)
 BEGIN
-    SELECT * FROM users WHERE id = id;
+    SELECT * FROM users WHERE id = p_id;
 END$$
 
 DELIMITER ;
@@ -179,7 +179,7 @@ DROP PROCEDURE IF EXISTS `SearchUsersByNameProcedure`;
 DELIMITER $$
 CREATE PROCEDURE `SearchUsersByNameProcedure`(IN p_name VARCHAR(255))
 BEGIN
-    SELECT * FROM users WHERE name LIKE CONCAT('%', name, '%');
+    SELECT * FROM users WHERE name LIKE p_name;
 END$$
 
 DELIMITER ;

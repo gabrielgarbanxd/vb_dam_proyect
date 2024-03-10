@@ -15,25 +15,25 @@ Namespace Services
         End Sub
 
         Public Async Function Authenticate(name As String, password As String) As Task(Of User)
-            'Try
+            Try
 
-            Dim user = Await _userRepository.SearchByNameAsync(name)
+                Dim user = Await _userRepository.SearchByNameAsync(name)
 
                 'If user Is Nothing Or user.VerifyPassword(password) = False Then
                 '    Throw New ServiceException("Usuario o contraseña incorrectos")
                 'End If
 
-                user.Role = Await _roleRepository.FindByIdAsync(user.RoleId)
-                user.Role.Permissions = Await _permissionRepository.SearchByRoleAsync(user.RoleId)
+                'user.Role = Await _roleRepository.FindByIdAsync(user.RoleId)
+                'user.Role.Permissions = Await _permissionRepository.SearchByRoleAsync(user.RoleId)
 
                 Return user
 
-            'Catch ex As Exception
+            Catch ex As Exception
 
-            '    Logger.LogException(ex)
-            '    Throw New ServiceException("Error al autenticar el usuario")
+                Logger.LogException(ex)
+                Throw New ServiceException("Error al autenticar el usuario")
 
-            'End Try
+            End Try
         End Function
 
         Public Async Function ResetPassword(email As String) As Task
