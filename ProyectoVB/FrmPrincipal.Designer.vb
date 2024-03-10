@@ -43,7 +43,7 @@ Partial Class FrmPrincipal
         MaterialTabControl1.Multiline = True
         MaterialTabControl1.Name = "MaterialTabControl1"
         MaterialTabControl1.SelectedIndex = 0
-        MaterialTabControl1.Size = New Size(986, 574)
+        MaterialTabControl1.Size = New Size(1258, 684)
         MaterialTabControl1.TabIndex = 0
         ' 
         ' TabPage1
@@ -51,7 +51,7 @@ Partial Class FrmPrincipal
         TabPage1.Location = New Point(4, 24)
         TabPage1.Name = "TabPage1"
         TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(978, 546)
+        TabPage1.Size = New Size(1250, 656)
         TabPage1.TabIndex = 0
         TabPage1.Text = "Usuarios"
         TabPage1.UseVisualStyleBackColor = True
@@ -61,7 +61,7 @@ Partial Class FrmPrincipal
         TabPage2.Location = New Point(4, 24)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(978, 546)
+        TabPage2.Size = New Size(1250, 656)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Roles"
         TabPage2.UseVisualStyleBackColor = True
@@ -71,7 +71,7 @@ Partial Class FrmPrincipal
         TabPage3.Location = New Point(4, 24)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
-        TabPage3.Size = New Size(978, 546)
+        TabPage3.Size = New Size(1250, 656)
         TabPage3.TabIndex = 2
         TabPage3.Text = "Permisos"
         TabPage3.UseVisualStyleBackColor = True
@@ -81,16 +81,16 @@ Partial Class FrmPrincipal
         TabPage4.Location = New Point(4, 24)
         TabPage4.Name = "TabPage4"
         TabPage4.Padding = New Padding(3)
-        TabPage4.Size = New Size(978, 546)
+        TabPage4.Size = New Size(1250, 656)
         TabPage4.TabIndex = 3
         TabPage4.Text = "Usuarios eliminados"
         TabPage4.UseVisualStyleBackColor = True
         ' 
         ' FrmPrincipal
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(992, 641)
+        ClientSize = New Size(1264, 751)
         Controls.Add(MaterialTabControl1)
         DrawerTabControl = MaterialTabControl1
         Name = "FrmPrincipal"
