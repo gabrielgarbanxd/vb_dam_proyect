@@ -19,12 +19,16 @@ Namespace Services
 
                 Dim user = Await _userRepository.SearchByNameAsync(name)
 
-                'If user Is Nothing Or user.VerifyPassword(password) = False Then
-                '    Throw New ServiceException("Usuario o contraseña incorrectos")
-                'End If
+                If user Is Nothing Or user.VerifyPassword(password) = False Then
+                    Throw New ServiceException("Usuario o contraseña incorrectos")
+                End If
 
-                'user.Role = Await _roleRepository.FindByIdAsync(user.RoleId)
-                'user.Role.Permissions = Await _permissionRepository.SearchByRoleAsync(user.RoleId)
+                user.Role = Await _roleRepository.FindByIdAsync(user.RoleId)
+                user.Role.Permissions = Await _permissionRepository.SearchByRoleAsync(user.RoleId)
+
+                user.LastConnection = DateTime.Now
+
+                Dim unused = _userRepository.UpdateAsync(user)
 
                 Return user
 
@@ -44,8 +48,10 @@ Namespace Services
                 Dim newPassword = DateTime.Now.ToString("yyyyMMddHHmmss")
 
                 user.Password = User.HashPassword(newPassword)
+                user.FirstLogin = True
 
                 Await _userRepository.UpdateAsync(user)
+
 
                 Dim mailService = New MailService
                 Await mailService.SendRecoverPasswordEmailAsync(email, newPassword)

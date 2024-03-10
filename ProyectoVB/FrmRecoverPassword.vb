@@ -9,7 +9,7 @@ Public Class FrmRecoverPassword
         Me.UserService = UserService
     End Sub
 
-    Private Async Sub BtnSubmit_Click(sender As Object, e As EventArgs)
+    Private Async Sub BtnSubmit_Click(sender As Object, e As EventArgs) Handles BtnSubmit.Click
 
         Try
 

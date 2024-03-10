@@ -1,4 +1,6 @@
-﻿Imports ProyectoVB.Services
+﻿Imports ProyectoVB.Entities
+Imports ProyectoVB.Services
+Imports MaterialSkin
 
 Public Class FrmLogin
 
@@ -10,41 +12,79 @@ Public Class FrmLogin
     End Sub
 
     Private Async Sub BtnSubmit_Click(sender As Object, e As EventArgs) Handles BtnSubmit.Click
-
         Try
             Dim user = Await UserService.Authenticate(TxtName.Text, TxtPassword.Text)
 
-            If user IsNot Nothing Then
+            If user Is Nothing Then
 
-                'If user.FirstLogin Then
-
-                '    Dim changePassword = New FrmChangePassword(user, UserService)
-                '    changePassword.ShowDialog()
-
-                'Else
-                '    My.Application.ShowMainForm()
-                '    Close()
-                'End If
-
-
-
-                Me.Hide()
-                Dim mainForm = New FrmPrincipal()
-                mainForm.Show()
-
+                HandleLoginError()
+                Return
 
             End If
 
-        Catch ex As ServiceException
-            MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+            If user.FirstLogin Then
 
+                HandleFirstLogin(user)
+                Return
+
+            End If
+
+            OpenMainForm()
+
+        Catch ex As ServiceException
+            HandleLoginError()
+        End Try
+    End Sub
+
+    Private Sub HandleFirstLogin(user As User)
+
+        Dim changePassword = New FrmChangePassword(user, UserService)
+
+        If changePassword.ShowDialog() = DialogResult.OK Then
+            OpenMainForm()
+        End If
+
+
+        EmptyFields()
+
+    End Sub
+
+
+    Private Sub OpenMainForm()
+        Me.Hide()
+        Dim mainForm = New FrmPrincipal()
+        mainForm.Show()
+    End Sub
+
+    Private Sub HandleLoginError()
+        EmptyFields()
+        MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
     End Sub
 
     Private Sub LostPassword_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LostPassword.LinkClicked
 
         Dim recoverPassword = New FrmRecoverPassword(UserService)
-        recoverPassword.ShowDialog()
+        If recoverPassword.ShowDialog() = DialogResult.OK Then
+            OpenMainForm()
+        End If
+        EmptyFields()
 
     End Sub
+
+    Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TxtName.Text = "admin"
+        TxtPassword.Text = "admin"
+    End Sub
+
+    Private Sub FrmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Application.Exit()
+    End Sub
+
+    Private Sub EmptyFields()
+
+        TxtName.Text = ""
+        TxtPassword.Text = ""
+
+    End Sub
+
 End Class

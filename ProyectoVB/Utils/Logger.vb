@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class Logger
-    Private Shared ReadOnly logFilePath As String = "logfile.txt"
+    Private Shared ReadOnly logFilePath As String = "./logfile.txt"
 
     Public Shared Sub LogException(ex As Exception)
         Using writer As New StreamWriter(logFilePath, True)

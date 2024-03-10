@@ -18,12 +18,12 @@ Namespace Repositories
             _mapper = Nothing
         End Sub
 
-        Protected Function GetSqlConnection() As MySqlConnection
-            Return _connection
+        Private Function GetSqlConnection() As MySqlConnection
+            Return New MySqlConnection(_connectionString)
         End Function
 
         Protected Async Function ExecuteQueryAsync(storedProcedure As String, Optional parameters As IDictionary(Of String, Object) = Nothing) As Task(Of IEnumerable(Of T))
-            Using connection = _connection
+            Using connection = GetSqlConnection()
                 Await connection.OpenAsync()
 
                 Using command = New MySqlCommand(storedProcedure, connection)
@@ -47,8 +47,11 @@ Namespace Repositories
         End Function
 
         Protected Async Function ExecuteNonQueryAsync(storedProcedure As String, Optional parameters As IDictionary(Of String, Object) = Nothing) As Task(Of Integer)
-            Using connection = _connection
-                Await connection.OpenAsync()
+            Using connection = GetSqlConnection()
+                If connection.State = ConnectionState.Closed Then
+                    Await connection.OpenAsync()
+                End If
+
 
                 Using command = New MySqlCommand(storedProcedure, connection)
                     command.CommandType = CommandType.StoredProcedure

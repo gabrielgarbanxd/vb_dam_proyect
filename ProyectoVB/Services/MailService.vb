@@ -11,7 +11,7 @@ Namespace Services
         Private ReadOnly _mailAddress As MailAddress
 
         Public Sub New()
-            _smtpClient = New SmtpClient("smtp.outlook.com") With {
+            _smtpClient = New SmtpClient("smtp.office365.com") With {
             .Port = 587,
             .Credentials = New Net.NetworkCredential(_outlookAccount, _outlookPassword),
             .EnableSsl = True

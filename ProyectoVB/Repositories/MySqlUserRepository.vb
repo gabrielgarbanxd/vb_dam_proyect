@@ -24,10 +24,12 @@ Namespace Repositories
             Dim users = Await ExecuteQueryAsync("GetUserByIdProcedure", parameters)
 
             If users.Any() Then
-                Throw New Exception("Error al buscar el usuario")
+
+                Return users.First()
+
             End If
 
-            Return users.First()
+            Throw New Exception("Error al buscar el usuario")
 
         End Function
 
@@ -38,7 +40,7 @@ Namespace Repositories
             Dim users = Await ExecuteQueryAsync("SearchUsersByNameProcedure", parameters)
 
 
-            If users.Any Then
+            If users.Any() Then
 
                 Return users.First()
 
@@ -54,11 +56,14 @@ Namespace Repositories
 
             Dim users = Await ExecuteQueryAsync("SearchUsersByEmailProcedure", parameters)
 
+
             If users.Any() Then
-                Throw New Exception("Error al buscar el usuario")
+
+                Return users.First()
+
             End If
 
-            Return users.First()
+            Throw New Exception("Error al buscar el usuario")
 
         End Function
 
