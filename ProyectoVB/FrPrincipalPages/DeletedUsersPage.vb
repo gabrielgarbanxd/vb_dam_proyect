@@ -33,7 +33,6 @@ Public Class DeletedUsersPage
 
     Private Sub LoadDataGrid()
 
-        DgvDeletedUsers.AutoGenerateColumns = False
         DgvDeletedUsers.DataSource = Nothing
 
         DgvDeletedUsers.DataSource = DeletedUsers

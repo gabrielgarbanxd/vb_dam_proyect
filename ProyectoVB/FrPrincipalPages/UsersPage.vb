@@ -236,4 +236,8 @@ Public Class UsersPage
 
 
     End Sub
+
+    Private Sub MaterialFloatingActionButton1_Click(sender As Object, e As EventArgs) Handles MaterialFloatingActionButton1.Click
+        LoadUsers()
+    End Sub
 End Class

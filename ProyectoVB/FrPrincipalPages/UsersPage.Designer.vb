@@ -49,6 +49,7 @@ Partial Class UsersPage
         BtnDeleteFilters = New MaterialSkin.Controls.MaterialButton()
         Label2 = New Label()
         Label1 = New Label()
+        MaterialFloatingActionButton1 = New MaterialSkin.Controls.MaterialFloatingActionButton()
         CType(DgvUsers, ComponentModel.ISupportInitialize).BeginInit()
         MaterialCard1.SuspendLayout()
         MaterialCard2.SuspendLayout()
@@ -217,10 +218,10 @@ Partial Class UsersPage
         ' DgvUsers
         ' 
         DgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DgvUsers.Location = New Point(682, 233)
+        DgvUsers.Location = New Point(653, 233)
         DgvUsers.Name = "DgvUsers"
         DgvUsers.RowTemplate.Height = 25
-        DgvUsers.Size = New Size(972, 614)
+        DgvUsers.Size = New Size(1001, 614)
         DgvUsers.TabIndex = 16
         ' 
         ' BtnDeleteUser
@@ -531,10 +532,23 @@ Partial Class UsersPage
         Label1.TabIndex = 21
         Label1.Text = "Crear Usuario"
         ' 
+        ' MaterialFloatingActionButton1
+        ' 
+        MaterialFloatingActionButton1.Depth = 0
+        MaterialFloatingActionButton1.Icon = Nothing
+        MaterialFloatingActionButton1.Location = New Point(1613, 12)
+        MaterialFloatingActionButton1.MouseState = MaterialSkin.MouseState.HOVER
+        MaterialFloatingActionButton1.Name = "MaterialFloatingActionButton1"
+        MaterialFloatingActionButton1.Size = New Size(56, 56)
+        MaterialFloatingActionButton1.TabIndex = 28
+        MaterialFloatingActionButton1.Text = "Recargar"
+        MaterialFloatingActionButton1.UseVisualStyleBackColor = True
+        ' 
         ' UsersPage
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(MaterialFloatingActionButton1)
         Controls.Add(BtnDeleteFilters)
         Controls.Add(Label3)
         Controls.Add(MaterialCard3)
@@ -589,4 +603,5 @@ Partial Class UsersPage
     Friend WithEvents BtnDeleteFilters As MaterialSkin.Controls.MaterialButton
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents MaterialFloatingActionButton1 As MaterialSkin.Controls.MaterialFloatingActionButton
 End Class

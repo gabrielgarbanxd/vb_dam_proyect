@@ -37,7 +37,7 @@ Partial Class DeletedUsersPage
         ' DgvDeletedUsers
         ' 
         DgvDeletedUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DgvDeletedUsers.Location = New Point(891, 38)
+        DgvDeletedUsers.Location = New Point(626, 38)
         DgvDeletedUsers.Name = "DgvDeletedUsers"
         DgvDeletedUsers.RowTemplate.Height = 25
         DgvDeletedUsers.Size = New Size(972, 614)
@@ -50,7 +50,7 @@ Partial Class DeletedUsersPage
         BtnRestoreUser.Depth = 0
         BtnRestoreUser.HighEmphasis = True
         BtnRestoreUser.Icon = Nothing
-        BtnRestoreUser.Location = New Point(891, 661)
+        BtnRestoreUser.Location = New Point(437, 616)
         BtnRestoreUser.Margin = New Padding(4, 6, 4, 6)
         BtnRestoreUser.MouseState = MaterialSkin.MouseState.HOVER
         BtnRestoreUser.Name = "BtnRestoreUser"
@@ -65,7 +65,7 @@ Partial Class DeletedUsersPage
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Emoji", 20F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI Emoji", 20.0F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.Location = New Point(203, 67)
         Label2.Name = "Label2"
         Label2.Size = New Size(244, 36)
@@ -116,7 +116,7 @@ Partial Class DeletedUsersPage
         TxtNameToSearch.BeepOnError = False
         TxtNameToSearch.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         TxtNameToSearch.Depth = 0
-        TxtNameToSearch.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
+        TxtNameToSearch.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         TxtNameToSearch.HidePromptOnLeave = False
         TxtNameToSearch.HideSelection = True
         TxtNameToSearch.InsertKeyMode = InsertKeyMode.Default
@@ -152,7 +152,7 @@ Partial Class DeletedUsersPage
         ' 
         MaterialLabel1.AutoSize = True
         MaterialLabel1.Depth = 0
-        MaterialLabel1.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        MaterialLabel1.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         MaterialLabel1.Location = New Point(17, 18)
         MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel1.Name = "MaterialLabel1"
@@ -181,7 +181,7 @@ Partial Class DeletedUsersPage
         ' 
         ' DeletedUsersPage
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(BtnDeleteFilters)
         Controls.Add(Label2)
@@ -189,7 +189,7 @@ Partial Class DeletedUsersPage
         Controls.Add(BtnRestoreUser)
         Controls.Add(DgvDeletedUsers)
         Name = "DeletedUsersPage"
-        Size = New Size(1906, 985)
+        Size = New Size(1684, 928)
         CType(DgvDeletedUsers, ComponentModel.ISupportInitialize).EndInit()
         MaterialCard2.ResumeLayout(False)
         MaterialCard2.PerformLayout()
