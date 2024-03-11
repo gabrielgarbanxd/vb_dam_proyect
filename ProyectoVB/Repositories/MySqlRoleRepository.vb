@@ -82,6 +82,42 @@ Namespace Repositories
             Return result
 
         End Function
+
+        Public Async Function AssignPermissionAsync(roleId As Integer, permissionId As Integer) As Task(Of Integer)
+
+            Dim parameters As New Dictionary(Of String, Object) From {
+                {"p_role_id", roleId},
+                {"p_permission_id", permissionId}
+            }
+
+            Dim result = Await ExecuteNonQueryAsync("AssignPermissionToRoleProcedure", parameters)
+
+            If result <= 0 Then
+                Throw New Exception("Error al asignar el permiso al rol")
+            End If
+
+            Return result
+
+        End Function
+
+        Public Async Function UnassignPermissionAsync(roleId As Integer, permissionId As Integer) As Task(Of Integer)
+
+            Dim parameters As New Dictionary(Of String, Object) From {
+                {"p_role_id", roleId},
+                {"p_permission_id", permissionId}
+            }
+
+            Dim result = Await ExecuteNonQueryAsync("UnassignPermissionToRoleProcedure", parameters)
+
+            If result <= 0 Then
+                Throw New Exception("Error al desasignar el permiso al rol")
+            End If
+
+            Return result
+
+        End Function
+
+
     End Class
 
 

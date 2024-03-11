@@ -373,6 +373,32 @@ END$$
 DELIMITER ;
 
 
+-- //===>> AssignPermissionToRoleProcedure permissions procedure <<===//
+DROP PROCEDURE IF EXISTS `AssignPermissionToRoleProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `AssignPermissionToRoleProcedure`(IN p_role_id INT, IN p_permission_id INT)
+BEGIN
+  INSERT INTO role_permissions (role_id, permission_id)
+  VALUES (p_role_id, p_permission_id);
+END$$
+
+DELIMITER ;
+
+
+-- //===>> UnassignPermissionToRoleProcedure permissions procedure <<===//
+DROP PROCEDURE IF EXISTS `UnassignPermissionToRoleProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `UnassignPermissionToRoleProcedure`(IN p_role_id INT, IN p_permission_id INT)
+BEGIN
+  DELETE FROM role_permissions WHERE role_id = p_role_id AND permission_id = p_permission_id;
+END$$
+
+DELIMITER ;
+
+
+
 -- ==================================
 -- ========>>    PERMISSIONS    <<=========
 -- ==================================
