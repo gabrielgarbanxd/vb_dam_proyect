@@ -30,6 +30,8 @@ Partial Class UsersPage
         lblRole = New MaterialSkin.Controls.MaterialLabel()
         BtnNewUser = New MaterialSkin.Controls.MaterialButton()
         DgvUsers = New DataGridView()
+        BtnDeleteUser = New MaterialSkin.Controls.MaterialButton()
+        BtnResetPassword = New MaterialSkin.Controls.MaterialButton()
         CType(DgvUsers, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -42,12 +44,12 @@ Partial Class UsersPage
         TxtEmail.BeepOnError = False
         TxtEmail.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         TxtEmail.Depth = 0
-        TxtEmail.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        TxtEmail.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
         TxtEmail.HidePromptOnLeave = False
         TxtEmail.HideSelection = True
         TxtEmail.InsertKeyMode = InsertKeyMode.Default
         TxtEmail.LeadingIcon = Nothing
-        TxtEmail.Location = New Point(16, 669)
+        TxtEmail.Location = New Point(22, 592)
         TxtEmail.Mask = ""
         TxtEmail.MaxLength = 32767
         TxtEmail.MouseState = MaterialSkin.MouseState.OUT
@@ -78,8 +80,8 @@ Partial Class UsersPage
         ' 
         lblEmailFrmUser.AutoSize = True
         lblEmailFrmUser.Depth = 0
-        lblEmailFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblEmailFrmUser.Location = New Point(16, 647)
+        lblEmailFrmUser.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblEmailFrmUser.Location = New Point(22, 570)
         lblEmailFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblEmailFrmUser.Name = "lblEmailFrmUser"
         lblEmailFrmUser.Size = New Size(53, 19)
@@ -95,12 +97,12 @@ Partial Class UsersPage
         TxtName.BeepOnError = False
         TxtName.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         TxtName.Depth = 0
-        TxtName.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        TxtName.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
         TxtName.HidePromptOnLeave = False
         TxtName.HideSelection = True
         TxtName.InsertKeyMode = InsertKeyMode.Default
         TxtName.LeadingIcon = Nothing
-        TxtName.Location = New Point(16, 583)
+        TxtName.Location = New Point(22, 506)
         TxtName.Mask = ""
         TxtName.MaxLength = 32767
         TxtName.MouseState = MaterialSkin.MouseState.OUT
@@ -131,8 +133,8 @@ Partial Class UsersPage
         ' 
         lblNameFrmUser.AutoSize = True
         lblNameFrmUser.Depth = 0
-        lblNameFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblNameFrmUser.Location = New Point(16, 561)
+        lblNameFrmUser.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblNameFrmUser.Location = New Point(22, 484)
         lblNameFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblNameFrmUser.Name = "lblNameFrmUser"
         lblNameFrmUser.Size = New Size(69, 19)
@@ -148,12 +150,12 @@ Partial Class UsersPage
         CbxRole.DropDownHeight = 174
         CbxRole.DropDownStyle = ComboBoxStyle.DropDownList
         CbxRole.DropDownWidth = 121
-        CbxRole.Font = New Font("Microsoft Sans Serif", 14.0F, FontStyle.Bold, GraphicsUnit.Pixel)
+        CbxRole.Font = New Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
         CbxRole.ForeColor = Color.FromArgb(CByte(222), CByte(0), CByte(0), CByte(0))
         CbxRole.FormattingEnabled = True
         CbxRole.IntegralHeight = False
         CbxRole.ItemHeight = 43
-        CbxRole.Location = New Point(16, 761)
+        CbxRole.Location = New Point(22, 684)
         CbxRole.MaxDropDownItems = 4
         CbxRole.MouseState = MaterialSkin.MouseState.OUT
         CbxRole.Name = "CbxRole"
@@ -165,8 +167,8 @@ Partial Class UsersPage
         ' 
         lblRole.AutoSize = True
         lblRole.Depth = 0
-        lblRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblRole.Location = New Point(16, 739)
+        lblRole.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblRole.Location = New Point(22, 662)
         lblRole.MouseState = MaterialSkin.MouseState.HOVER
         lblRole.Name = "lblRole"
         lblRole.Size = New Size(32, 19)
@@ -180,7 +182,7 @@ Partial Class UsersPage
         BtnNewUser.Depth = 0
         BtnNewUser.HighEmphasis = True
         BtnNewUser.Icon = Nothing
-        BtnNewUser.Location = New Point(16, 819)
+        BtnNewUser.Location = New Point(22, 742)
         BtnNewUser.Margin = New Padding(4, 6, 4, 6)
         BtnNewUser.MouseState = MaterialSkin.MouseState.HOVER
         BtnNewUser.Name = "BtnNewUser"
@@ -195,16 +197,56 @@ Partial Class UsersPage
         ' DgvUsers
         ' 
         DgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DgvUsers.Location = New Point(485, 218)
+        DgvUsers.Location = New Point(682, 218)
         DgvUsers.Name = "DgvUsers"
         DgvUsers.RowTemplate.Height = 25
-        DgvUsers.Size = New Size(1196, 649)
+        DgvUsers.Size = New Size(972, 629)
         DgvUsers.TabIndex = 16
+        ' 
+        ' BtnDeleteUser
+        ' 
+        BtnDeleteUser.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        BtnDeleteUser.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        BtnDeleteUser.Depth = 0
+        BtnDeleteUser.HighEmphasis = True
+        BtnDeleteUser.Icon = Nothing
+        BtnDeleteUser.Location = New Point(481, 811)
+        BtnDeleteUser.Margin = New Padding(4, 6, 4, 6)
+        BtnDeleteUser.MouseState = MaterialSkin.MouseState.HOVER
+        BtnDeleteUser.Name = "BtnDeleteUser"
+        BtnDeleteUser.NoAccentTextColor = Color.Empty
+        BtnDeleteUser.Size = New Size(153, 36)
+        BtnDeleteUser.TabIndex = 17
+        BtnDeleteUser.Text = "Eliminar Usuario"
+        BtnDeleteUser.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        BtnDeleteUser.UseAccentColor = False
+        BtnDeleteUser.UseVisualStyleBackColor = True
+        ' 
+        ' BtnResetPassword
+        ' 
+        BtnResetPassword.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        BtnResetPassword.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        BtnResetPassword.Depth = 0
+        BtnResetPassword.HighEmphasis = True
+        BtnResetPassword.Icon = Nothing
+        BtnResetPassword.Location = New Point(466, 742)
+        BtnResetPassword.Margin = New Padding(4, 6, 4, 6)
+        BtnResetPassword.MouseState = MaterialSkin.MouseState.HOVER
+        BtnResetPassword.Name = "BtnResetPassword"
+        BtnResetPassword.NoAccentTextColor = Color.Empty
+        BtnResetPassword.Size = New Size(190, 36)
+        BtnResetPassword.TabIndex = 18
+        BtnResetPassword.Text = "Reiniciar Contraseña"
+        BtnResetPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        BtnResetPassword.UseAccentColor = False
+        BtnResetPassword.UseVisualStyleBackColor = True
         ' 
         ' UsersPage
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(BtnResetPassword)
+        Controls.Add(BtnDeleteUser)
         Controls.Add(DgvUsers)
         Controls.Add(BtnNewUser)
         Controls.Add(lblRole)
@@ -229,4 +271,6 @@ Partial Class UsersPage
     Friend WithEvents lblRole As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents BtnNewUser As MaterialSkin.Controls.MaterialButton
     Friend WithEvents DgvUsers As DataGridView
+    Friend WithEvents BtnDeleteUser As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnResetPassword As MaterialSkin.Controls.MaterialButton
 End Class

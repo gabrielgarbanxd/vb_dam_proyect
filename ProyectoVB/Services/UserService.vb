@@ -155,10 +155,16 @@ Namespace Services
             End Try
         End Function
 
-        Public Async Function Delete(id As Integer) As Task(Of Integer)
+        Public Async Function Delete(user As User) As Task(Of Integer)
             Try
 
-                Return Await _userRepository.DeleteAsync(id)
+                Dim deletedUserRepo = New MySqlDeletedUserRepository()
+
+                Dim deletedUser = New DeletedUser(user.Id, user.Name, user.Email, user.RoleId, user.CreatedAt, DateTime.Now)
+
+                Await deletedUserRepo.CreateAsync(deletedUser)
+
+                Return Await _userRepository.DeleteAsync(user.Id)
 
             Catch ex As Exception
 

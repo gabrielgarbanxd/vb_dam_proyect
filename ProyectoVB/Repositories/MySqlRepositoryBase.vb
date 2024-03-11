@@ -6,7 +6,7 @@ Namespace Repositories
     Public MustInherit Class MySqlRepositoryBase(Of T As Class)
         Private ReadOnly _connection As MySqlConnection
         Private ReadOnly _mapper As IObjectMapper(Of T)
-        Private ReadOnly _connectionString As String = "Server=localhost;Port=3306;Database=vb_proyect_joyfe;User=root;Password=1234;"
+        Private ReadOnly _connectionString As String = "Server=localhost;Port=3309;Database=vb_proyect_joyfe;User=root;Password=joyfe;"
 
         Public Sub New(mapper As IObjectMapper(Of T))
             _connection = New MySqlConnection(_connectionString)

@@ -14,6 +14,7 @@ DROP TABLE IF EXISTS `vb_proyect_joyfe`.`users`;
 DROP TABLE IF EXISTS `vb_proyect_joyfe`.`role_permissions`;
 DROP TABLE IF EXISTS `vb_proyect_joyfe`.`roles`;
 DROP TABLE IF EXISTS `vb_proyect_joyfe`.`permissions`;
+DROP TABLE IF EXISTS `vb_proyect_joyfe`.`deleted_users`;
 
 
 -- creates tables
@@ -74,8 +75,20 @@ CREATE TABLE `vb_proyect_joyfe`.`users` (
     REFERENCES `vb_proyect_joyfe`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-    
-    
+
+
+-- Tabla de usuarios eliminados
+CREATE TABLE `vb_proyect_joyfe`.`deleted_users` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `role_id` INT UNSIGNED NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `deleted_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE
+);
 
 
 
@@ -128,6 +141,14 @@ VALUES ('moderator', 'moderator@example.com', '8c6976e5b5410415bde908bd4dee15dfb
 -- Usuario usuario
 INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
 VALUES ('user', 'user@example.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 
+        (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'user'), 
+        CURRENT_TIMESTAMP);
+INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
+VALUES ('user2', 'user@example.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 
+        (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'user'), 
+        CURRENT_TIMESTAMP);
+INSERT INTO `vb_proyect_joyfe`.`users` (`name`, `email`, `password`, `role_id`, `created_at`)
+VALUES ('user3', 'user@example.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 
         (SELECT id FROM `vb_proyect_joyfe`.`roles` WHERE `name` = 'user'), 
         CURRENT_TIMESTAMP);
 
@@ -258,9 +279,9 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `DeleteUserProcedure`;
 
 DELIMITER $$
-CREATE PROCEDURE `DeleteUserProcedure`(IN id INT, OUT p_Result INT)
+CREATE PROCEDURE `DeleteUserProcedure`(IN p_id INT, OUT p_Result INT)
 BEGIN
-  DELETE FROM users WHERE id = id;
+  DELETE FROM users WHERE id = p_id;
 
   SET p_Result = ROW_COUNT();
 
@@ -363,11 +384,16 @@ CREATE PROCEDURE `DeleteRoleProcedure`(IN p_id INT, OUT p_Result INT)
 BEGIN
   DELETE FROM roles WHERE id = p_id;
 
-  SET p_Result = ROW_COUNT();
+  SELECT id INTO p_Result FROM roles WHERE id = p_id;
 
-  IF p_Result = 0 THEN
-    SET p_Result = -1;
-  END IF;
+  -- Verificar si la eliminación fue exitosa
+  IF p_Result > 0 THEN
+    SET p_Result = 0; -- Código de error para eliminación no exitosa
+  ELSE
+    SET p_Result = p_id; -- Código de éxito
+    END IF;
+
+  
 END$$
 
 DELIMITER ;
@@ -523,6 +549,84 @@ DELIMITER ;
 -- ==================================
 -- ========>>   DELETED USERS    <<=========
 -- ==================================
+
+-- //===>> GetAllDeletedUsersProcedure deleted_users procedure <<===//
+DROP PROCEDURE IF EXISTS `GetAllDeletedUsersProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `GetAllDeletedUsersProcedure`()
+BEGIN
+    SELECT * FROM deleted_users;
+END$$
+
+DELIMITER ;
+
+-- //===>> GetDeletedUserByIdProcedure deleted_users procedure <<===//
+DROP PROCEDURE IF EXISTS `GetDeletedUserByIdProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `GetDeletedUserByIdProcedure`(IN p_id INT)
+BEGIN
+  SELECT * FROM deleted_users WHERE id = p_id;
+END$$
+
+DELIMITER ;
+
+
+-- //===>> SearchDeletedUsersByNameProcedure deleted_users procedure <<===//
+DROP PROCEDURE IF EXISTS `SearchDeletedUsersByNameProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchDeletedUsersByNameProcedure`(IN p_name VARCHAR(255))
+BEGIN
+  SELECT * FROM deleted_users WHERE name LIKE p_name;
+END$$
+
+DELIMITER ;
+
+-- //===>> CreateDeletedUserProcedure deleted_users procedure <<===//
+DROP PROCEDURE IF EXISTS `CreateDeletedUserProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `CreateDeletedUserProcedure`(
+  IN p_name VARCHAR(255),
+  IN p_email VARCHAR(255),
+  IN p_role_id INT,
+  IN p_created_at DATETIME,
+  IN p_deleted_at DATETIME,
+  OUT p_Result INT
+)
+BEGIN
+  INSERT INTO deleted_users (name, email, role_id, created_at, deleted_at)
+  VALUES (p_name, p_email, p_role_id, p_created_at, p_deleted_at);
+
+  SET p_Result = LAST_INSERT_ID();
+
+  IF p_Result = 0 THEN
+    SET p_Result = -1;
+  END IF;
+END$$
+
+DELIMITER ;
+
+-- //===>> DeleteDeletedUserProcedure deleted_users procedure <<===//
+DROP PROCEDURE IF EXISTS `DeleteDeletedUserProcedure`;
+
+DELIMITER $$
+CREATE PROCEDURE `DeleteDeletedUserProcedure`(IN p_id INT, OUT p_Result INT)
+BEGIN
+  DELETE FROM deleted_users WHERE id = p_id;
+
+  SET p_Result = ROW_COUNT();
+
+  IF p_Result = 0 THEN
+    SET p_Result = -1;
+  END IF;
+END$$
+
+DELIMITER ;
+
+
 
 
 

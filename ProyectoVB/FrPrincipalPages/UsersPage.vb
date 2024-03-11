@@ -43,23 +43,7 @@ Public Class UsersPage
         Try
             Users = Await usersService.GetAll()
 
-            DgvUsers.DataSource = Users
-
-
-            DgvUsers.Columns("Id").Visible = False
-            DgvUsers.Columns("Name").HeaderText = "Nombre"
-            DgvUsers.Columns("Email").HeaderText = "Correo"
-            DgvUsers.Columns("Password").Visible = False
-            DgvUsers.Columns("Payment").HeaderText = "Pago"
-            DgvUsers.Columns("LastConnection").HeaderText = "Última conexión"
-            DgvUsers.Columns("FirstLogin").HeaderText = "Primer inicio de sesión"
-            DgvUsers.Columns("RoleId").Visible = False
-            DgvUsers.Columns("CreatedAt").HeaderText = "Creado en"
-            DgvUsers.Columns("Role").Visible = False
-
-
-
-
+            LoadDataGrid()
 
         Catch ex As ServiceException
 
@@ -69,20 +53,78 @@ Public Class UsersPage
 
     End Sub
 
-    Private Sub DgvUsers_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles DgvUsers.DataBindingComplete
-        For Each row As DataGridViewRow In DgvUsers.Rows
-            Dim user As User = DirectCast(row.DataBoundItem, User)
-            row.Cells("Role").Value = user.Role.Name
-        Next
+    Private Sub LoadDataGrid()
+
+        'DgvUsers.AutoGenerateColumns = False
+        DgvUsers.DataSource = Nothing
+
+        DgvUsers.DataSource = Users
+
+        DgvUsers.Columns("Id").Visible = False
+        DgvUsers.Columns("Name").HeaderText = "Nombre"
+        DgvUsers.Columns("Name").ReadOnly = True
+        DgvUsers.Columns("Email").HeaderText = "Correo"
+        DgvUsers.Columns("Password").Visible = False
+        DgvUsers.Columns("Payment").HeaderText = "Pago"
+        DgvUsers.Columns("Payment").Width = 150
+        DgvUsers.Columns("LastConnection").HeaderText = "Última conexión"
+        DgvUsers.Columns("LastConnection").Width = 150
+        DgvUsers.Columns("FirstLogin").HeaderText = "Primer inicio de sesión"
+        DgvUsers.Columns("RoleId").HeaderText = "Rol"
+        DgvUsers.Columns("CreatedAt").HeaderText = "Creado en"
+        DgvUsers.Columns("CreatedAt").Width = 150
+        DgvUsers.Columns("Role").Visible = False
     End Sub
 
 
-    Private Sub BtnNewUser_Click(sender As Object, e As EventArgs) Handles BtnNewUser.Click
+    Private Async Sub BtnNewUser_Click(sender As Object, e As EventArgs) Handles BtnNewUser.Click
 
         'Pruebas para ver si se cargan los roles
         Dim role As Role = CbxRole.SelectedItem
         MsgBox(role.Name)
         MsgBox(role.Id)
+
+        Dim user As New User(0, TxtName.Text, TxtEmail.Text, User.HashPassword(DateTime.Now), Nothing, Nothing, True, role.Id, DateTime.Now)
+
+        Try
+            Dim new_id = Await usersService.Create(user)
+
+            user.Id = new_id
+
+            Users.Add(user)
+
+            LoadDataGrid()
+        Catch ex As ServiceException
+            MessageBox.Show("Error al crear el usuario: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    Private Async Sub BtnDeleteUser_Click(sender As Object, e As EventArgs) Handles BtnDeleteUser.Click
+
+        If DgvUsers.SelectedRows.Count <= 0 Then
+            MessageBox.Show("Debe seleccionar un usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        Dim user As User = DgvUsers.SelectedRows(0).DataBoundItem
+
+        Try
+            Await usersService.Delete(user)
+
+            Users.Remove(user)
+
+            LoadDataGrid()
+
+            MaterialSkin.Controls.MaterialMessageBox.Show("Usuario eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As ServiceException
+            MessageBox.Show("Error al eliminar el usuario: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    Private Sub BtnResetPassword_Click(sender As Object, e As EventArgs) Handles BtnResetPassword.Click
 
     End Sub
 End Class
