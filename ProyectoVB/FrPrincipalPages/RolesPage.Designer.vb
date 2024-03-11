@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class RolesPage
     Inherits System.Windows.Forms.UserControl
 
     'UserControl reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class RolesPage
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         lblNameFrmRole = New MaterialSkin.Controls.MaterialLabel()
         txtNameFrmRoles = New MaterialSkin.Controls.MaterialMaskedTextBox()
@@ -34,14 +34,17 @@ Partial Class RolesPage
         CheckedListBox1 = New CheckedListBox()
         CheckedListBox2 = New CheckedListBox()
         DataGridView1 = New DataGridView()
+        btnGuardar = New MaterialSkin.Controls.MaterialButton()
+        DataGridView2 = New DataGridView()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' lblNameFrmRole
         ' 
         lblNameFrmRole.AutoSize = True
         lblNameFrmRole.Depth = 0
-        lblNameFrmRole.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblNameFrmRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblNameFrmRole.Location = New Point(24, 35)
         lblNameFrmRole.MouseState = MaterialSkin.MouseState.HOVER
         lblNameFrmRole.Name = "lblNameFrmRole"
@@ -58,7 +61,7 @@ Partial Class RolesPage
         txtNameFrmRoles.BeepOnError = False
         txtNameFrmRoles.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         txtNameFrmRoles.Depth = 0
-        txtNameFrmRoles.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
+        txtNameFrmRoles.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         txtNameFrmRoles.HidePromptOnLeave = False
         txtNameFrmRoles.HideSelection = True
         txtNameFrmRoles.InsertKeyMode = InsertKeyMode.Default
@@ -94,7 +97,7 @@ Partial Class RolesPage
         ' 
         lblDescriptionFrmRole.AutoSize = True
         lblDescriptionFrmRole.Depth = 0
-        lblDescriptionFrmRole.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblDescriptionFrmRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblDescriptionFrmRole.Location = New Point(24, 133)
         lblDescriptionFrmRole.MouseState = MaterialSkin.MouseState.HOVER
         lblDescriptionFrmRole.Name = "lblDescriptionFrmRole"
@@ -130,7 +133,7 @@ Partial Class RolesPage
         ' 
         lblSelect.AutoSize = True
         lblSelect.Depth = 0
-        lblSelect.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblSelect.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblSelect.Location = New Point(24, 312)
         lblSelect.MouseState = MaterialSkin.MouseState.HOVER
         lblSelect.Name = "lblSelect"
@@ -141,17 +144,17 @@ Partial Class RolesPage
         ' chkPermisos
         ' 
         chkPermisos.FormattingEnabled = True
-        chkPermisos.Items.AddRange(New Object() {"CREAR USUARIOS", "LEER USUARIOS", "ACTUALIZAR USUARIOS", "ELIMINAR USUARIOS"})
+        chkPermisos.Items.AddRange(New Object() {"CREATE", "UPDATE", "READ", "DELETE"})
         chkPermisos.Location = New Point(24, 375)
         chkPermisos.Name = "chkPermisos"
-        chkPermisos.Size = New Size(180, 166)
+        chkPermisos.Size = New Size(180, 94)
         chkPermisos.TabIndex = 13
         ' 
         ' lblAdminFrmP
         ' 
         lblAdminFrmP.AutoSize = True
         lblAdminFrmP.Depth = 0
-        lblAdminFrmP.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblAdminFrmP.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblAdminFrmP.Location = New Point(24, 353)
         lblAdminFrmP.MouseState = MaterialSkin.MouseState.HOVER
         lblAdminFrmP.Name = "lblAdminFrmP"
@@ -163,8 +166,8 @@ Partial Class RolesPage
         ' 
         lblModeradorFrmP.AutoSize = True
         lblModeradorFrmP.Depth = 0
-        lblModeradorFrmP.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblModeradorFrmP.Location = New Point(24, 555)
+        lblModeradorFrmP.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblModeradorFrmP.Location = New Point(24, 482)
         lblModeradorFrmP.MouseState = MaterialSkin.MouseState.HOVER
         lblModeradorFrmP.Name = "lblModeradorFrmP"
         lblModeradorFrmP.Size = New Size(40, 19)
@@ -175,8 +178,8 @@ Partial Class RolesPage
         ' 
         lblUserFrmP.AutoSize = True
         lblUserFrmP.Depth = 0
-        lblUserFrmP.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblUserFrmP.Location = New Point(24, 756)
+        lblUserFrmP.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblUserFrmP.Location = New Point(24, 616)
         lblUserFrmP.MouseState = MaterialSkin.MouseState.HOVER
         lblUserFrmP.Name = "lblUserFrmP"
         lblUserFrmP.Size = New Size(146, 19)
@@ -186,19 +189,19 @@ Partial Class RolesPage
         ' CheckedListBox1
         ' 
         CheckedListBox1.FormattingEnabled = True
-        CheckedListBox1.Items.AddRange(New Object() {"CREAR USUARIOS", "LEER USUARIOS", "ACTUALIZAR USUARIOS", "ELIMINAR USUARIOS"})
-        CheckedListBox1.Location = New Point(24, 577)
+        CheckedListBox1.Items.AddRange(New Object() {"CREATE", "UPDATE", "READ", "DELETE"})
+        CheckedListBox1.Location = New Point(24, 504)
         CheckedListBox1.Name = "CheckedListBox1"
-        CheckedListBox1.Size = New Size(180, 166)
+        CheckedListBox1.Size = New Size(180, 94)
         CheckedListBox1.TabIndex = 17
         ' 
         ' CheckedListBox2
         ' 
         CheckedListBox2.FormattingEnabled = True
-        CheckedListBox2.Items.AddRange(New Object() {"CREAR USUARIOS", "LEER USUARIOS", "ACTUALIZAR USUARIOS", "ELIMINAR USUARIOS"})
-        CheckedListBox2.Location = New Point(24, 778)
+        CheckedListBox2.Items.AddRange(New Object() {"CREATE", "UPDATE", "READ", "DELETE"})
+        CheckedListBox2.Location = New Point(24, 638)
         CheckedListBox2.Name = "CheckedListBox2"
-        CheckedListBox2.Size = New Size(180, 166)
+        CheckedListBox2.Size = New Size(180, 94)
         CheckedListBox2.TabIndex = 18
         ' 
         ' DataGridView1
@@ -207,13 +210,43 @@ Partial Class RolesPage
         DataGridView1.Location = New Point(322, 35)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowTemplate.Height = 25
-        DataGridView1.Size = New Size(1539, 909)
+        DataGridView1.Size = New Size(535, 800)
         DataGridView1.TabIndex = 19
+        ' 
+        ' btnGuardar
+        ' 
+        btnGuardar.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        btnGuardar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default
+        btnGuardar.Depth = 0
+        btnGuardar.HighEmphasis = True
+        btnGuardar.Icon = Nothing
+        btnGuardar.Location = New Point(24, 752)
+        btnGuardar.Margin = New Padding(4, 6, 4, 6)
+        btnGuardar.MouseState = MaterialSkin.MouseState.HOVER
+        btnGuardar.Name = "btnGuardar"
+        btnGuardar.NoAccentTextColor = Color.Empty
+        btnGuardar.Size = New Size(88, 36)
+        btnGuardar.TabIndex = 20
+        btnGuardar.Text = "Guardar"
+        btnGuardar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        btnGuardar.UseAccentColor = False
+        btnGuardar.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Location = New Point(894, 35)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowTemplate.Height = 25
+        DataGridView2.Size = New Size(504, 800)
+        DataGridView2.TabIndex = 21
         ' 
         ' RolesPage
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(DataGridView2)
+        Controls.Add(btnGuardar)
         Controls.Add(DataGridView1)
         Controls.Add(CheckedListBox2)
         Controls.Add(CheckedListBox1)
@@ -227,8 +260,9 @@ Partial Class RolesPage
         Controls.Add(txtNameFrmRoles)
         Controls.Add(lblNameFrmRole)
         Name = "RolesPage"
-        Size = New Size(1906, 985)
+        Size = New Size(1684, 870)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -245,5 +279,7 @@ Partial Class RolesPage
     Friend WithEvents CheckedListBox1 As CheckedListBox
     Friend WithEvents CheckedListBox2 As CheckedListBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents btnGuardar As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents DataGridView2 As DataGridView
 
 End Class
