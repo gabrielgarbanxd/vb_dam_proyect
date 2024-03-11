@@ -155,9 +155,9 @@ Partial Class RolesPage
         lblAdminFrmP.Location = New Point(24, 353)
         lblAdminFrmP.MouseState = MaterialSkin.MouseState.HOVER
         lblAdminFrmP.Name = "lblAdminFrmP"
-        lblAdminFrmP.Size = New Size(47, 19)
+        lblAdminFrmP.Size = New Size(63, 19)
         lblAdminFrmP.TabIndex = 14
-        lblAdminFrmP.Text = "Admin"
+        lblAdminFrmP.Text = "Usuarios"
         ' 
         ' lblModeradorFrmP
         ' 
@@ -167,9 +167,9 @@ Partial Class RolesPage
         lblModeradorFrmP.Location = New Point(24, 555)
         lblModeradorFrmP.MouseState = MaterialSkin.MouseState.HOVER
         lblModeradorFrmP.Name = "lblModeradorFrmP"
-        lblModeradorFrmP.Size = New Size(78, 19)
+        lblModeradorFrmP.Size = New Size(40, 19)
         lblModeradorFrmP.TabIndex = 15
-        lblModeradorFrmP.Text = "Moderador"
+        lblModeradorFrmP.Text = "Roles"
         ' 
         ' lblUserFrmP
         ' 
@@ -179,9 +179,9 @@ Partial Class RolesPage
         lblUserFrmP.Location = New Point(24, 756)
         lblUserFrmP.MouseState = MaterialSkin.MouseState.HOVER
         lblUserFrmP.Name = "lblUserFrmP"
-        lblUserFrmP.Size = New Size(32, 19)
+        lblUserFrmP.Size = New Size(146, 19)
         lblUserFrmP.TabIndex = 16
-        lblUserFrmP.Text = "User"
+        lblUserFrmP.Text = "Usuarios Eliminados"
         ' 
         ' CheckedListBox1
         ' 

@@ -6,9 +6,9 @@ Public Class RolesPage
 
     Private ReadOnly _roleService As RoleService
 
-    Public Sub New(roleService As RoleService)
+    Public Sub New()
         InitializeComponent()
-        _roleService = roleService
+        _roleService = New RoleService(My.Application.RoleRepository, My.Application.PermissionRepository))
         LoadRoles()
     End Sub
 
