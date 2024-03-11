@@ -4,9 +4,9 @@ Public Class FrmPrincipal
 
     ' Pages
     Private usersPage As UsersPage
-    Private rolesPage As RolesPage
-    Private deletedUsersPage As DeletedUsersPage
-    Private profilePage As ProfilePage
+    Private rolesPage As RolesPage = Nothing
+    Private deletedUsersPage As DeletedUsersPage = Nothing
+    Private profilePage As ProfilePage = Nothing
 
     Public Sub New()
         InitializeComponent()

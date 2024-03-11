@@ -23,14 +23,61 @@ Namespace My
     Partial Friend Class MyApplication
 
         ' *** Repositories ***
-        Public ReadOnly UserRepository As MySqlUserRepository
-        Public ReadOnly RoleRepository As MySqlRoleRepository
-        Public ReadOnly PermissionRepository As MySqlPermissionRepository
+        Private _userRepository As MySqlUserRepository = Nothing
+        Private _roleRepository As MySqlRoleRepository = Nothing
+        Private _permissionRepository As MySqlPermissionRepository = Nothing
+        Private _deletedUserRepository As MySqlDeletedUserRepository = Nothing
 
         ' *** Mappers ***
-        Private ReadOnly UserMapper As UserMapper
-        Private ReadOnly RoleMapper As RoleMapper
-        Private ReadOnly PermissionMapper As PermissionMapper
+        Private _userMapper As UserMapper = Nothing
+        Private _roleMapper As RoleMapper = Nothing
+        Private _permissionMapper As PermissionMapper = Nothing
+        Private _deletedUserMapper As DeletedUserMapper = Nothing
+
+        Public ReadOnly Property UserRepository As MySqlUserRepository
+            Get
+                If _userRepository Is Nothing Then
+                    _userMapper = New UserMapper()
+                    _userRepository = New MySqlUserRepository(_userMapper)
+                End If
+
+                Return _userRepository
+            End Get
+        End Property
+
+        Public ReadOnly Property RoleRepository As MySqlRoleRepository
+            Get
+                If _roleRepository Is Nothing Then
+                    _roleMapper = New RoleMapper()
+                    _roleRepository = New MySqlRoleRepository(_roleMapper)
+                End If
+
+                Return _roleRepository
+            End Get
+        End Property
+
+        Public ReadOnly Property PermissionRepository As MySqlPermissionRepository
+            Get
+                If _permissionRepository Is Nothing Then
+                    _permissionMapper = New PermissionMapper()
+                    _permissionRepository = New MySqlPermissionRepository(_permissionMapper)
+                End If
+
+                Return _permissionRepository
+            End Get
+        End Property
+
+        Public ReadOnly Property DeletedUserRepository As MySqlDeletedUserRepository
+            Get
+                If _deletedUserRepository Is Nothing Then
+                    _deletedUserMapper = New DeletedUserMapper()
+                    _deletedUserRepository = New MySqlDeletedUserRepository(_deletedUserMapper)
+                End If
+
+                Return _deletedUserRepository
+            End Get
+        End Property
+
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
         Public Sub New()
@@ -39,18 +86,6 @@ Namespace My
             Me.EnableVisualStyles = True
             Me.SaveMySettingsOnExit = True
             Me.ShutdownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
-
-            ' *** Mappers ***
-            UserMapper = New UserMapper
-            RoleMapper = New RoleMapper
-            PermissionMapper = New PermissionMapper
-
-
-            ' *** Repositories ***
-            UserRepository = New MySqlUserRepository(UserMapper)
-            RoleRepository = New MySqlRoleRepository(RoleMapper)
-            PermissionRepository = New MySqlPermissionRepository(PermissionMapper)
-
         End Sub
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>

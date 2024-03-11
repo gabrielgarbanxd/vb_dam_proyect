@@ -63,8 +63,10 @@ Public Class UsersPage
 
         DgvUsers.Columns("Id").Visible = False
         DgvUsers.Columns("Name").HeaderText = "Nombre"
+        DgvUsers.Columns("Name").Width = 200
         DgvUsers.Columns("Name").ReadOnly = True
         DgvUsers.Columns("Email").HeaderText = "Correo"
+        DgvUsers.Columns("Email").Width = 230
         DgvUsers.Columns("Password").Visible = False
         DgvUsers.Columns("Payment").HeaderText = "Pago"
         DgvUsers.Columns("Payment").Width = 150
