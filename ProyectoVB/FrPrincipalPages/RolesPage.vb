@@ -66,26 +66,15 @@ Public Class RolesPage
 
     Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
         If DataGridView1.SelectedRows.Count > 0 Then
-            Dim selectedRole As Role = CType(DataGridView1.SelectedRows(0).DataBoundItem, Role)
+            Dim selectedRole As Role = DataGridView1.SelectedRows(0).DataBoundItem
             ShowPermissions(selectedRole)
         End If
     End Sub
 
     Private Sub ShowPermissions(selectedRole As Role)
+
         If selectedRole IsNot Nothing Then
-            DataGridView2.AutoGenerateColumns = False
-            DataGridView2.Columns.Clear()
-
-            Dim actionColumn As New DataGridViewTextBoxColumn()
-            actionColumn.DataPropertyName = "Action"
-            actionColumn.HeaderText = "Acción"
-            DataGridView2.Columns.Add(actionColumn)
-
-            Dim resourceColumn As New DataGridViewTextBoxColumn()
-            resourceColumn.DataPropertyName = "Resource"
-            resourceColumn.HeaderText = "Recurso"
-            DataGridView2.Columns.Add(resourceColumn)
-
+            DataGridView2.DataSource = Nothing
             DataGridView2.DataSource = selectedRole.Permissions
         Else
             DataGridView2.DataSource = Nothing

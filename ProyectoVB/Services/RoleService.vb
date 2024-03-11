@@ -13,7 +13,11 @@ Namespace Services
 
         Public Async Function GetAll() As Task(Of List(Of Role))
             Try
-                Return Await _roleRepository.GetAllAsync()
+                Dim roles = Await _roleRepository.GetAllAsync()
+                For Each role As Role In roles
+                    role.Permissions = Await _permissionRepository.SearchByRoleAsync(role.Id)
+                Next
+                Return roles
             Catch ex As Exception
                 Logger.LogException(ex)
                 Throw New ServiceException("Error al obtener todos los roles")

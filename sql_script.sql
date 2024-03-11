@@ -466,14 +466,14 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `SearchPermissionsByRoleProcedure`;
 
 DELIMITER $$
-CREATE PROCEDURE `SearchPermissionsByRoleProcedure`(IN p_role_id VARCHAR(255))
+CREATE PROCEDURE `SearchPermissionsByRoleProcedure`(IN p_role_id INT)
 BEGIN
 
   SELECT p.id, p.action, p.resource
   FROM permissions p
   JOIN role_permissions rp ON p.id = rp.permission_id
   JOIN roles r ON rp.role_id = r.id
-  WHERE r.name = p_role_id;
+  WHERE r.id = p_role_id;
 END$$
 
 DELIMITER ;
