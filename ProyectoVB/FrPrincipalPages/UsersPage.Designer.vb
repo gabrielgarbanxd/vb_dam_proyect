@@ -22,7 +22,6 @@ Partial Class UsersPage
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New ComponentModel.Container()
         TxtEmail = New MaterialSkin.Controls.MaterialMaskedTextBox()
         lblEmailFrmUser = New MaterialSkin.Controls.MaterialLabel()
         TxtName = New MaterialSkin.Controls.MaterialMaskedTextBox()
@@ -30,9 +29,7 @@ Partial Class UsersPage
         CbxRole = New MaterialSkin.Controls.MaterialComboBox()
         lblRole = New MaterialSkin.Controls.MaterialLabel()
         BtnNewUser = New MaterialSkin.Controls.MaterialButton()
-        UsersPageBindingSource = New BindingSource(components)
         DgvUsers = New DataGridView()
-        CType(UsersPageBindingSource, ComponentModel.ISupportInitialize).BeginInit()
         CType(DgvUsers, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -50,7 +47,7 @@ Partial Class UsersPage
         TxtEmail.HideSelection = True
         TxtEmail.InsertKeyMode = InsertKeyMode.Default
         TxtEmail.LeadingIcon = Nothing
-        TxtEmail.Location = New Point(28, 756)
+        TxtEmail.Location = New Point(22, 645)
         TxtEmail.Mask = ""
         TxtEmail.MaxLength = 32767
         TxtEmail.MouseState = MaterialSkin.MouseState.OUT
@@ -82,7 +79,7 @@ Partial Class UsersPage
         lblEmailFrmUser.AutoSize = True
         lblEmailFrmUser.Depth = 0
         lblEmailFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblEmailFrmUser.Location = New Point(28, 731)
+        lblEmailFrmUser.Location = New Point(1759, 69)
         lblEmailFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblEmailFrmUser.Name = "lblEmailFrmUser"
         lblEmailFrmUser.Size = New Size(53, 19)
@@ -103,7 +100,7 @@ Partial Class UsersPage
         TxtName.HideSelection = True
         TxtName.InsertKeyMode = InsertKeyMode.Default
         TxtName.LeadingIcon = Nothing
-        TxtName.Location = New Point(28, 670)
+        TxtName.Location = New Point(22, 559)
         TxtName.Mask = ""
         TxtName.MaxLength = 32767
         TxtName.MouseState = MaterialSkin.MouseState.OUT
@@ -135,7 +132,7 @@ Partial Class UsersPage
         lblNameFrmUser.AutoSize = True
         lblNameFrmUser.Depth = 0
         lblNameFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblNameFrmUser.Location = New Point(28, 645)
+        lblNameFrmUser.Location = New Point(3, 0)
         lblNameFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblNameFrmUser.Name = "lblNameFrmUser"
         lblNameFrmUser.Size = New Size(69, 19)
@@ -156,7 +153,7 @@ Partial Class UsersPage
         CbxRole.FormattingEnabled = True
         CbxRole.IntegralHeight = False
         CbxRole.ItemHeight = 43
-        CbxRole.Location = New Point(28, 848)
+        CbxRole.Location = New Point(22, 737)
         CbxRole.MaxDropDownItems = 4
         CbxRole.MouseState = MaterialSkin.MouseState.OUT
         CbxRole.Name = "CbxRole"
@@ -169,7 +166,7 @@ Partial Class UsersPage
         lblRole.AutoSize = True
         lblRole.Depth = 0
         lblRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblRole.Location = New Point(28, 826)
+        lblRole.Location = New Point(22, 715)
         lblRole.MouseState = MaterialSkin.MouseState.HOVER
         lblRole.Name = "lblRole"
         lblRole.Size = New Size(32, 19)
@@ -183,7 +180,7 @@ Partial Class UsersPage
         BtnNewUser.Depth = 0
         BtnNewUser.HighEmphasis = True
         BtnNewUser.Icon = Nothing
-        BtnNewUser.Location = New Point(28, 917)
+        BtnNewUser.Location = New Point(4, 900)
         BtnNewUser.Margin = New Padding(4, 6, 4, 6)
         BtnNewUser.MouseState = MaterialSkin.MouseState.HOVER
         BtnNewUser.Name = "BtnNewUser"
@@ -195,17 +192,13 @@ Partial Class UsersPage
         BtnNewUser.UseAccentColor = False
         BtnNewUser.UseVisualStyleBackColor = True
         ' 
-        ' UsersPageBindingSource
-        ' 
-        UsersPageBindingSource.DataSource = GetType(UsersPage)
-        ' 
         ' DgvUsers
         ' 
         DgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DgvUsers.Location = New Point(368, 69)
+        DgvUsers.Location = New Point(310, 69)
         DgvUsers.Name = "DgvUsers"
         DgvUsers.RowTemplate.Height = 25
-        DgvUsers.Size = New Size(1523, 893)
+        DgvUsers.Size = New Size(1385, 784)
         DgvUsers.TabIndex = 16
         ' 
         ' UsersPage
@@ -221,8 +214,7 @@ Partial Class UsersPage
         Controls.Add(TxtName)
         Controls.Add(lblNameFrmUser)
         Name = "UsersPage"
-        Size = New Size(1906, 985)
-        CType(UsersPageBindingSource, ComponentModel.ISupportInitialize).EndInit()
+        Size = New Size(1910, 942)
         CType(DgvUsers, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -236,6 +228,5 @@ Partial Class UsersPage
     Friend WithEvents CbxRole As MaterialSkin.Controls.MaterialComboBox
     Friend WithEvents lblRole As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents BtnNewUser As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents UsersPageBindingSource As BindingSource
     Friend WithEvents DgvUsers As DataGridView
 End Class
