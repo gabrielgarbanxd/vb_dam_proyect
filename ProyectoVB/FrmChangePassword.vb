@@ -51,9 +51,10 @@ Public Class FrmChangePassword
         Me.Text = $"Cambiar contraseña de { _user.Name }"
     End Sub
 
-    'Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
-    '    Me.DialogResult = DialogResult.Cancel
-    '    Me.Close()
 
-    'End Sub
+    Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
+        Me.DialogResult = DialogResult.Cancel
+        Me.Close()
+
+    End Sub
 End Class

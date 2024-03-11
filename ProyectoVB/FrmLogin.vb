@@ -11,6 +11,17 @@ Public Class FrmLogin
         UserService = New UserService(My.Application.UserRepository, My.Application.RoleRepository, My.Application.PermissionRepository)
     End Sub
 
+
+    Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        SkinManager.AddFormToManage(Me)
+        SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
+        SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+
+        TxtName.Text = "admin"
+        TxtPassword.Text = "admin"
+    End Sub
+
     Private Async Sub BtnSubmit_Click(sender As Object, e As EventArgs) Handles BtnSubmit.Click
         Try
             Dim user = Await UserService.Authenticate(TxtName.Text, TxtPassword.Text)
@@ -69,11 +80,6 @@ Public Class FrmLogin
         End If
         EmptyFields()
 
-    End Sub
-
-    Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TxtName.Text = "admin"
-        TxtPassword.Text = "admin"
     End Sub
 
     Private Sub FrmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

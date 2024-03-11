@@ -22,86 +22,86 @@ Partial Class FrmPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        MaterialTabControl1 = New MaterialSkin.Controls.MaterialTabControl()
-        TabPage1 = New TabPage()
-        TabPage2 = New TabPage()
-        TabPage3 = New TabPage()
-        TabPage4 = New TabPage()
-        MaterialTabControl1.SuspendLayout()
+        TabControlMain = New MaterialSkin.Controls.MaterialTabControl()
+        TabPageUsers = New TabPage()
+        TabPageRoles = New TabPage()
+        TabPageDeletedUsers = New TabPage()
+        TabPageProfile = New TabPage()
+        TabControlMain.SuspendLayout()
         SuspendLayout()
         ' 
-        ' MaterialTabControl1
+        ' TabControlMain
         ' 
-        MaterialTabControl1.Controls.Add(TabPage1)
-        MaterialTabControl1.Controls.Add(TabPage2)
-        MaterialTabControl1.Controls.Add(TabPage3)
-        MaterialTabControl1.Controls.Add(TabPage4)
-        MaterialTabControl1.Depth = 0
-        MaterialTabControl1.Dock = DockStyle.Fill
-        MaterialTabControl1.Location = New Point(3, 64)
-        MaterialTabControl1.MouseState = MaterialSkin.MouseState.HOVER
-        MaterialTabControl1.Multiline = True
-        MaterialTabControl1.Name = "MaterialTabControl1"
-        MaterialTabControl1.SelectedIndex = 0
-        MaterialTabControl1.Size = New Size(1258, 684)
-        MaterialTabControl1.TabIndex = 0
+        TabControlMain.Controls.Add(TabPageUsers)
+        TabControlMain.Controls.Add(TabPageRoles)
+        TabControlMain.Controls.Add(TabPageDeletedUsers)
+        TabControlMain.Controls.Add(TabPageProfile)
+        TabControlMain.Depth = 0
+        TabControlMain.Dock = DockStyle.Fill
+        TabControlMain.Location = New Point(3, 64)
+        TabControlMain.MouseState = MaterialSkin.MouseState.HOVER
+        TabControlMain.Multiline = True
+        TabControlMain.Name = "TabControlMain"
+        TabControlMain.SelectedIndex = 0
+        TabControlMain.Size = New Size(1914, 1013)
+        TabControlMain.TabIndex = 0
         ' 
-        ' TabPage1
+        ' TabPageUsers
         ' 
-        TabPage1.Location = New Point(4, 24)
-        TabPage1.Name = "TabPage1"
-        TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(1250, 656)
-        TabPage1.TabIndex = 0
-        TabPage1.Text = "Usuarios"
-        TabPage1.UseVisualStyleBackColor = True
+        TabPageUsers.Location = New Point(4, 24)
+        TabPageUsers.Name = "TabPageUsers"
+        TabPageUsers.Padding = New Padding(3)
+        TabPageUsers.Size = New Size(1906, 985)
+        TabPageUsers.TabIndex = 0
+        TabPageUsers.Text = "Usuarios"
+        TabPageUsers.UseVisualStyleBackColor = True
         ' 
-        ' TabPage2
+        ' TabPageRoles
         ' 
-        TabPage2.Location = New Point(4, 24)
-        TabPage2.Name = "TabPage2"
-        TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(1250, 656)
-        TabPage2.TabIndex = 1
-        TabPage2.Text = "Roles"
-        TabPage2.UseVisualStyleBackColor = True
+        TabPageRoles.Location = New Point(4, 24)
+        TabPageRoles.Name = "TabPageRoles"
+        TabPageRoles.Padding = New Padding(3)
+        TabPageRoles.Size = New Size(1906, 985)
+        TabPageRoles.TabIndex = 1
+        TabPageRoles.Text = "Roles"
+        TabPageRoles.UseVisualStyleBackColor = True
         ' 
-        ' TabPage3
+        ' TabPageDeletedUsers
         ' 
-        TabPage3.Location = New Point(4, 24)
-        TabPage3.Name = "TabPage3"
-        TabPage3.Padding = New Padding(3)
-        TabPage3.Size = New Size(1250, 656)
-        TabPage3.TabIndex = 2
-        TabPage3.Text = "Permisos"
-        TabPage3.UseVisualStyleBackColor = True
+        TabPageDeletedUsers.Location = New Point(4, 24)
+        TabPageDeletedUsers.Name = "TabPageDeletedUsers"
+        TabPageDeletedUsers.Padding = New Padding(3)
+        TabPageDeletedUsers.Size = New Size(1906, 985)
+        TabPageDeletedUsers.TabIndex = 2
+        TabPageDeletedUsers.Text = "Usuarios Eliminados"
+        TabPageDeletedUsers.UseVisualStyleBackColor = True
         ' 
-        ' TabPage4
+        ' TabPageProfile
         ' 
-        TabPage4.Location = New Point(4, 24)
-        TabPage4.Name = "TabPage4"
-        TabPage4.Padding = New Padding(3)
-        TabPage4.Size = New Size(1250, 656)
-        TabPage4.TabIndex = 3
-        TabPage4.Text = "Usuarios eliminados"
-        TabPage4.UseVisualStyleBackColor = True
+        TabPageProfile.Location = New Point(4, 24)
+        TabPageProfile.Name = "TabPageProfile"
+        TabPageProfile.Padding = New Padding(3)
+        TabPageProfile.Size = New Size(1906, 985)
+        TabPageProfile.TabIndex = 3
+        TabPageProfile.Text = "Perfil"
+        TabPageProfile.UseVisualStyleBackColor = True
         ' 
         ' FrmPrincipal
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1264, 751)
-        Controls.Add(MaterialTabControl1)
-        DrawerTabControl = MaterialTabControl1
+        ClientSize = New Size(1920, 1080)
+        Controls.Add(TabControlMain)
+        DrawerTabControl = TabControlMain
         Name = "FrmPrincipal"
         Text = "FrmPrincipal"
-        MaterialTabControl1.ResumeLayout(False)
+        TabControlMain.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents MaterialTabControl1 As MaterialSkin.Controls.MaterialTabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents TabControlMain As MaterialSkin.Controls.MaterialTabControl
+    Friend WithEvents TabPageUsers As TabPage
+    Friend WithEvents TabPageRoles As TabPage
+    Friend WithEvents TabPageDeletedUsers As TabPage
+    Friend WithEvents TabPageProfile As TabPage
 End Class
