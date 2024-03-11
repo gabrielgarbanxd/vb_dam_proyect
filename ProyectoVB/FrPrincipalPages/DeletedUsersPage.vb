@@ -11,8 +11,6 @@ Public Class DeletedUsersPage
     Public Sub New()
         InitializeComponent()
 
-        MsgBox("DeletedUsersPage")
-
         deletedUsersService = New DeletedUserService(My.Application.DeletedUserRepository)
 
         LoadDeletedUsers()
