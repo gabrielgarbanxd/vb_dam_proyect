@@ -47,7 +47,7 @@ Partial Class UsersPage
         TxtEmail.HideSelection = True
         TxtEmail.InsertKeyMode = InsertKeyMode.Default
         TxtEmail.LeadingIcon = Nothing
-        TxtEmail.Location = New Point(22, 645)
+        TxtEmail.Location = New Point(16, 669)
         TxtEmail.Mask = ""
         TxtEmail.MaxLength = 32767
         TxtEmail.MouseState = MaterialSkin.MouseState.OUT
@@ -79,7 +79,7 @@ Partial Class UsersPage
         lblEmailFrmUser.AutoSize = True
         lblEmailFrmUser.Depth = 0
         lblEmailFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblEmailFrmUser.Location = New Point(1759, 69)
+        lblEmailFrmUser.Location = New Point(16, 647)
         lblEmailFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblEmailFrmUser.Name = "lblEmailFrmUser"
         lblEmailFrmUser.Size = New Size(53, 19)
@@ -100,7 +100,7 @@ Partial Class UsersPage
         TxtName.HideSelection = True
         TxtName.InsertKeyMode = InsertKeyMode.Default
         TxtName.LeadingIcon = Nothing
-        TxtName.Location = New Point(22, 559)
+        TxtName.Location = New Point(16, 583)
         TxtName.Mask = ""
         TxtName.MaxLength = 32767
         TxtName.MouseState = MaterialSkin.MouseState.OUT
@@ -132,7 +132,7 @@ Partial Class UsersPage
         lblNameFrmUser.AutoSize = True
         lblNameFrmUser.Depth = 0
         lblNameFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblNameFrmUser.Location = New Point(3, 0)
+        lblNameFrmUser.Location = New Point(16, 561)
         lblNameFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblNameFrmUser.Name = "lblNameFrmUser"
         lblNameFrmUser.Size = New Size(69, 19)
@@ -153,7 +153,7 @@ Partial Class UsersPage
         CbxRole.FormattingEnabled = True
         CbxRole.IntegralHeight = False
         CbxRole.ItemHeight = 43
-        CbxRole.Location = New Point(22, 737)
+        CbxRole.Location = New Point(16, 761)
         CbxRole.MaxDropDownItems = 4
         CbxRole.MouseState = MaterialSkin.MouseState.OUT
         CbxRole.Name = "CbxRole"
@@ -166,7 +166,7 @@ Partial Class UsersPage
         lblRole.AutoSize = True
         lblRole.Depth = 0
         lblRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        lblRole.Location = New Point(22, 715)
+        lblRole.Location = New Point(16, 739)
         lblRole.MouseState = MaterialSkin.MouseState.HOVER
         lblRole.Name = "lblRole"
         lblRole.Size = New Size(32, 19)
@@ -180,7 +180,7 @@ Partial Class UsersPage
         BtnNewUser.Depth = 0
         BtnNewUser.HighEmphasis = True
         BtnNewUser.Icon = Nothing
-        BtnNewUser.Location = New Point(4, 900)
+        BtnNewUser.Location = New Point(16, 819)
         BtnNewUser.Margin = New Padding(4, 6, 4, 6)
         BtnNewUser.MouseState = MaterialSkin.MouseState.HOVER
         BtnNewUser.Name = "BtnNewUser"
@@ -195,10 +195,10 @@ Partial Class UsersPage
         ' DgvUsers
         ' 
         DgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DgvUsers.Location = New Point(310, 69)
+        DgvUsers.Location = New Point(485, 218)
         DgvUsers.Name = "DgvUsers"
         DgvUsers.RowTemplate.Height = 25
-        DgvUsers.Size = New Size(1385, 784)
+        DgvUsers.Size = New Size(1196, 649)
         DgvUsers.TabIndex = 16
         ' 
         ' UsersPage
@@ -214,7 +214,7 @@ Partial Class UsersPage
         Controls.Add(TxtName)
         Controls.Add(lblNameFrmUser)
         Name = "UsersPage"
-        Size = New Size(1910, 942)
+        Size = New Size(1684, 870)
         CType(DgvUsers, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
