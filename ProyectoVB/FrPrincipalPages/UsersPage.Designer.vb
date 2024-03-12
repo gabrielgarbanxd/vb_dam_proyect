@@ -65,7 +65,7 @@ Partial Class UsersPage
         TxtEmail.BeepOnError = False
         TxtEmail.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         TxtEmail.Depth = 0
-        TxtEmail.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
+        TxtEmail.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         TxtEmail.HidePromptOnLeave = False
         TxtEmail.HideSelection = True
         TxtEmail.InsertKeyMode = InsertKeyMode.Default
@@ -101,7 +101,7 @@ Partial Class UsersPage
         ' 
         lblEmailFrmUser.AutoSize = True
         lblEmailFrmUser.Depth = 0
-        lblEmailFrmUser.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblEmailFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblEmailFrmUser.Location = New Point(57, 126)
         lblEmailFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblEmailFrmUser.Name = "lblEmailFrmUser"
@@ -118,7 +118,7 @@ Partial Class UsersPage
         TxtName.BeepOnError = False
         TxtName.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         TxtName.Depth = 0
-        TxtName.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
+        TxtName.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         TxtName.HidePromptOnLeave = False
         TxtName.HideSelection = True
         TxtName.InsertKeyMode = InsertKeyMode.Default
@@ -154,7 +154,7 @@ Partial Class UsersPage
         ' 
         lblNameFrmUser.AutoSize = True
         lblNameFrmUser.Depth = 0
-        lblNameFrmUser.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblNameFrmUser.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblNameFrmUser.Location = New Point(57, 34)
         lblNameFrmUser.MouseState = MaterialSkin.MouseState.HOVER
         lblNameFrmUser.Name = "lblNameFrmUser"
@@ -171,7 +171,7 @@ Partial Class UsersPage
         CbxRole.DropDownHeight = 174
         CbxRole.DropDownStyle = ComboBoxStyle.DropDownList
         CbxRole.DropDownWidth = 121
-        CbxRole.Font = New Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel)
+        CbxRole.Font = New Font("Microsoft Sans Serif", 14.0F, FontStyle.Bold, GraphicsUnit.Pixel)
         CbxRole.ForeColor = Color.FromArgb(CByte(222), CByte(0), CByte(0), CByte(0))
         CbxRole.FormattingEnabled = True
         CbxRole.IntegralHeight = False
@@ -188,7 +188,7 @@ Partial Class UsersPage
         ' 
         lblRole.AutoSize = True
         lblRole.Depth = 0
-        lblRole.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblRole.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblRole.Location = New Point(57, 224)
         lblRole.MouseState = MaterialSkin.MouseState.HOVER
         lblRole.Name = "lblRole"
@@ -345,7 +345,7 @@ Partial Class UsersPage
         TxtNameToSearch.BeepOnError = False
         TxtNameToSearch.CutCopyMaskFormat = MaskFormat.IncludeLiterals
         TxtNameToSearch.Depth = 0
-        TxtNameToSearch.Font = New Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel)
+        TxtNameToSearch.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         TxtNameToSearch.HidePromptOnLeave = False
         TxtNameToSearch.HideSelection = True
         TxtNameToSearch.InsertKeyMode = InsertKeyMode.Default
@@ -381,7 +381,7 @@ Partial Class UsersPage
         ' 
         MaterialLabel1.AutoSize = True
         MaterialLabel1.Depth = 0
-        MaterialLabel1.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        MaterialLabel1.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         MaterialLabel1.Location = New Point(17, 18)
         MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel1.Name = "MaterialLabel1"
@@ -449,7 +449,7 @@ Partial Class UsersPage
         ' 
         lblto.AutoSize = True
         lblto.Depth = 0
-        lblto.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        lblto.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         lblto.Location = New Point(352, 31)
         lblto.MouseState = MaterialSkin.MouseState.HOVER
         lblto.Name = "lblto"
@@ -468,7 +468,7 @@ Partial Class UsersPage
         ' 
         MaterialLabel2.AutoSize = True
         MaterialLabel2.Depth = 0
-        MaterialLabel2.Font = New Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+        MaterialLabel2.Font = New Font("Roboto", 14.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         MaterialLabel2.Location = New Point(17, 31)
         MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         MaterialLabel2.Name = "MaterialLabel2"
@@ -486,7 +486,7 @@ Partial Class UsersPage
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Emoji", 20F, FontStyle.Regular, GraphicsUnit.Point)
+        Label3.Font = New Font("Segoe UI Emoji", 20.0F, FontStyle.Regular, GraphicsUnit.Point)
         Label3.Location = New Point(682, 32)
         Label3.Name = "Label3"
         Label3.Size = New Size(288, 36)
@@ -515,7 +515,7 @@ Partial Class UsersPage
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Emoji", 20F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI Emoji", 20.0F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.Location = New Point(48, 32)
         Label2.Name = "Label2"
         Label2.Size = New Size(244, 36)
@@ -525,7 +525,7 @@ Partial Class UsersPage
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI Emoji", 20F, FontStyle.Regular, GraphicsUnit.Point)
+        Label1.Font = New Font("Segoe UI Emoji", 20.0F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.Location = New Point(48, 402)
         Label1.Name = "Label1"
         Label1.Size = New Size(176, 36)
@@ -546,7 +546,7 @@ Partial Class UsersPage
         ' 
         ' UsersPage
         ' 
-        AutoScaleDimensions = New SizeF(7F, 16F)
+        AutoScaleDimensions = New SizeF(7.0F, 16.0F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(MaterialFloatingActionButton1)
         Controls.Add(BtnDeleteFilters)
@@ -561,7 +561,7 @@ Partial Class UsersPage
         Controls.Add(BtnResetPassword)
         Controls.Add(BtnDeleteUser)
         Controls.Add(DgvUsers)
-        Font = New Font("Segoe UI Emoji", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Font = New Font("Segoe UI Emoji", 9.0F, FontStyle.Regular, GraphicsUnit.Point)
         Name = "UsersPage"
         Size = New Size(1684, 928)
         CType(DgvUsers, ComponentModel.ISupportInitialize).EndInit()

@@ -16,6 +16,7 @@ Public Class UsersPage
 
         rolesService = New RoleService(My.Application.RoleRepository, My.Application.PermissionRepository)
         usersService = New UserService(My.Application.UserRepository, My.Application.RoleRepository, My.Application.PermissionRepository)
+        MaterialFloatingActionButton1.Icon = My.Resources.recarga
 
         LoadRoles()
         LoadUsers()
@@ -240,4 +241,5 @@ Public Class UsersPage
     Private Sub MaterialFloatingActionButton1_Click(sender As Object, e As EventArgs) Handles MaterialFloatingActionButton1.Click
         LoadUsers()
     End Sub
+
 End Class
