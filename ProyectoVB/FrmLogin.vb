@@ -40,6 +40,8 @@ Public Class FrmLogin
 
             End If
 
+            My.Application.UserContext = user
+
             OpenMainForm()
 
         Catch ex As ServiceException

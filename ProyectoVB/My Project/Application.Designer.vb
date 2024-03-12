@@ -10,6 +10,7 @@ Option Explicit On
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
+Imports ProyectoVB.Entities
 Imports ProyectoVB.Repositories
 Imports ProyectoVB.Repositories.Mappers
 
@@ -77,6 +78,9 @@ Namespace My
                 Return _deletedUserRepository
             End Get
         End Property
+
+        ' *** User Context ***
+        Public Property UserContext As User = Nothing
 
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
