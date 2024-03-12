@@ -13,22 +13,36 @@ Public Class RolesPage
     End Sub
 
     Private Async Sub SaveRole()
-        Dim selectedRowIndex As Integer = DataGridView1.SelectedCells(0).RowIndex
-        Dim selectedRole As Role = _roles(selectedRowIndex)
+        Dim roleName As String = txtNameFrmRoles.Text
+        Dim roleDescription As String = txtDescriptionFrmRoles.Text
 
-        selectedRole.Permissions = New List(Of Permission)()
+        Dim newRole As New Role With {
+        .Name = roleName,
+        .Description = roleDescription,
+        .Permissions = New List(Of Permission)()
+    }
 
         For Each index As Integer In chkPermisos.CheckedIndices
             Dim action As PermissionAction = [Enum].Parse(GetType(PermissionAction), chkPermisos.Items(index).ToString())
-            selectedRole.Permissions.Add(New Permission() With {.Action = action, .Resource = PermissionResource.USERS})
+
+            Dim newPermission As New Permission() With {
+            .Action = action,
+            .Resource = PermissionResource.USERS
+        }
+
+            newRole.Permissions.Add(newPermission)
         Next
 
-        Await _roleService.Update(selectedRole)
-
-        LoadRoles()
-
-        MessageBox.Show("Rol actualizado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Try
+            Await _roleService.Create(newRole)
+            LoadRoles()
+            MessageBox.Show("Rol creado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Error al crear el rol: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
+
 
     Private Async Sub LoadRoles()
         Try
