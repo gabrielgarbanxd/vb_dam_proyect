@@ -133,7 +133,7 @@ Public Class UsersPage
             MaterialMessageBox.Show("Usuario eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As ServiceException
-            MessageBox.Show("Error al eliminar el usuario: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error al eliminar el usuario: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub

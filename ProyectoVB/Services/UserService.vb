@@ -158,6 +158,16 @@ Namespace Services
         Public Async Function Delete(user As User) As Task(Of Integer)
             Try
 
+                If user.LastConnection Is Nothing Then
+                    Throw New ServiceException("No se puede eliminar un usuario que no haya iniciado sesión")
+                End If
+
+                ' solo podemos eliminar un usuario que lleve 3 dias sin conectarse
+                If user.LastConnection?.AddDays(3) > DateTime.Now Then
+                    Throw New ServiceException("No se puede eliminar un usuario que haya iniciado sesión en los últimos 3 días")
+                End If
+
+
                 Dim deletedUserRepo = New MySqlDeletedUserRepository()
 
                 Dim deletedUser = New DeletedUser(user.Id, user.Name, user.Email, user.RoleId, user.CreatedAt, DateTime.Now)
