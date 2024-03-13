@@ -400,25 +400,37 @@ DELIMITER ;
 
 
 -- //===>> AssignPermissionToRoleProcedure permissions procedure <<===//
-DROP PROCEDURE IF EXISTS `AssignPermissionToRoleProcedure`;
+DROP PROCEDURE IF EXISTS AssignPermissionToRoleProcedure;
 
 DELIMITER $$
-CREATE PROCEDURE `AssignPermissionToRoleProcedure`(IN p_role_id INT, IN p_permission_id INT)
+CREATE PROCEDURE AssignPermissionToRoleProcedure(IN p_role_id INT, IN p_permission_id INT, OUT p_Result INT)
 BEGIN
   INSERT INTO role_permissions (role_id, permission_id)
   VALUES (p_role_id, p_permission_id);
+
+  SET p_Result = LAST_INSERT_ID();
+
+  IF p_Result = 0 THEN
+    SET p_Result = -1;
+  END IF;
 END$$
 
 DELIMITER ;
 
 
 -- //===>> UnassignPermissionToRoleProcedure permissions procedure <<===//
-DROP PROCEDURE IF EXISTS `UnassignPermissionToRoleProcedure`;
+DROP PROCEDURE IF EXISTS UnassignPermissionToRoleProcedure;
 
 DELIMITER $$
-CREATE PROCEDURE `UnassignPermissionToRoleProcedure`(IN p_role_id INT, IN p_permission_id INT)
+CREATE PROCEDURE UnassignPermissionToRoleProcedure(IN p_role_id INT, IN p_permission_id INT, OUT p_Result INT)
 BEGIN
   DELETE FROM role_permissions WHERE role_id = p_role_id AND permission_id = p_permission_id;
+
+  SET p_Result = ROW_COUNT();
+
+  IF p_Result = 0 THEN
+    SET p_Result = -1;
+  END IF;
 END$$
 
 DELIMITER ;

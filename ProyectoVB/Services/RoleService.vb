@@ -70,12 +70,15 @@ Namespace Services
         End Function
 
         Public Async Function AssignPermissionAsync(roleId As Integer, permissionId As Integer) As Task(Of Integer)
-            Try
-                Return Await _roleRepository.AssignPermissionAsync(roleId, permissionId)
-            Catch ex As Exception
-                Logger.LogException(ex)
-                Throw New ServiceException("Error al asignar permiso al rol")
-            End Try
+            'Try
+            '    Return Await _roleRepository.AssignPermissionAsync(roleId, permissionId)
+            'Catch ex As Exception
+            '    Logger.LogException(ex)
+            '    Throw New ServiceException("Error al asignar permiso al rol")
+            'End Try
+
+            Return Await _roleRepository.AssignPermissionAsync(roleId, permissionId)
+
         End Function
 
         Public Async Function UnassignPermissionAsync(roleId As Integer, permissionId As Integer) As Task(Of Integer)
@@ -86,5 +89,7 @@ Namespace Services
                 Throw New ServiceException("Error al desasignar permiso del rol")
             End Try
         End Function
+
+
     End Class
 End Namespace

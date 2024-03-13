@@ -92,6 +92,38 @@ Namespace Repositories
             Return result
 
         End Function
+
+
+
+
+
+        Public Async Function GetPermissionIdByActionAndResourceAsync(action As PermissionAction, resource As PermissionResource) As Task(Of Integer)
+            Try
+                Dim parameters As New Dictionary(Of String, Object) From {
+                    {"p_action", action.ToString()},
+                    {"p_resource", resource.ToString()}
+                }
+
+                Dim permissions = Await ExecuteQueryAsync("GetPermissionIdByActionAndResourceProcedure", parameters)
+
+                If permissions.Any() Then
+                    Return permissions.First().Id
+                Else
+                    Return -1
+                End If
+            Catch ex As Exception
+                Logger.LogException(ex)
+                Throw New ServiceException("Error al obtener el ID del permiso")
+            End Try
+        End Function
+
+
+
+
+
+
+
+
     End Class
 
 End Namespace

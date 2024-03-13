@@ -5,42 +5,71 @@ Public Class RolesPage
 
     Private ReadOnly _roleService As RoleService
     Private _roles As List(Of Role)
+    Private _permission As List(Of Permission)
 
     Public Sub New()
         InitializeComponent()
         _roleService = New RoleService(My.Application.RoleRepository, My.Application.PermissionRepository)
+
+
+
+
+
         LoadRoles()
+        LoadPermissions()
+    End Sub
+
+
+
+
+    Private Async Sub LoadPermissions()
+        Try
+            _permission = Await My.Application.PermissionRepository.GetAllAsync()
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Async Sub SaveRole()
         Dim roleName As String = txtNameFrmRoles.Text
         Dim roleDescription As String = txtDescriptionFrmRoles.Text
 
-        Dim newRole As New Role With {
-        .Name = roleName,
-        .Description = roleDescription,
-        .Permissions = New List(Of Permission)()
-    }
+        Dim newRole As New Role(0, roleName, roleDescription)
 
-        For Each index As Integer In chkPermisos.CheckedIndices
-            Dim action As PermissionAction = [Enum].Parse(GetType(PermissionAction), chkPermisos.Items(index).ToString())
+        ' Obtienen las acciones seleccionadas de cada lista de verificación (chkPermisos, CheckedListBox1, CheckedListBox2)
+        ' y las convierten a PermissionAction. Estas acciones seleccionadas se utilizarán para filtrar los permisos que se asignarán al nuevo rol.
 
-            Dim newPermission As New Permission() With {
-            .Action = action,
-            .Resource = PermissionResource.USERS
-        }
-
-            newRole.Permissions.Add(newPermission)
-        Next
+        Dim selectedUserActions = chkPermisos.CheckedItems.Cast(Of String)().Select(Function(a) [Enum].Parse(GetType(PermissionAction), a)).ToList()
+        Dim selectedRoleActions = CheckedListBox1.CheckedItems.Cast(Of String)().Select(Function(a) [Enum].Parse(GetType(PermissionAction), a)).ToList()
+        Dim selectedDeletedUserActions = CheckedListBox2.CheckedItems.Cast(Of String)().Select(Function(a) [Enum].Parse(GetType(PermissionAction), a)).ToList()
+        Dim filterPermissions = _permission.Where(Function(p)
+                                                      If p.Resource = PermissionResource.USERS AndAlso selectedUserActions.Contains(p.Action) Then
+                                                          Return True
+                                                      ElseIf p.Resource = PermissionResource.ROLES AndAlso selectedRoleActions.Contains(p.Action) Then
+                                                          Return True
+                                                      ElseIf p.Resource = PermissionResource.DELETED_USERS AndAlso selectedDeletedUserActions.Contains(p.Action) Then
+                                                          Return True
+                                                      Else
+                                                          Return False
+                                                      End If
+                                                  End Function)
 
         Try
-            Await _roleService.Create(newRole)
+            Dim roleId As Integer = Await _roleService.Create(newRole)
+
+            For Each p As Permission In filterPermissions
+                Await _roleService.AssignPermissionAsync(roleId, p.Id)
+            Next
+
             LoadRoles()
             MessageBox.Show("Rol creado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
+        Catch ex As ServiceException
             MessageBox.Show("Error al crear el rol: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+
 
 
 
