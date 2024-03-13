@@ -54,6 +54,8 @@ Public Class FrmLogin
         Dim changePassword = New FrmChangePassword(user, UserService)
 
         If changePassword.ShowDialog() = DialogResult.OK Then
+
+            My.Application.UserContext = user
             OpenMainForm()
         End If
 
